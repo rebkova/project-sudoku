@@ -1,29 +1,42 @@
 import React from "react"
 
+import { Cell } from "./Cell"
+
 
 export const Grid = () => {
 
+  //2D array
   const easySudoku = [
-    [null, null, null, 6, null, 1, 2, 8, 7],
-    [6, null, 2, 5, null, 8, null, null, null],
-    [9, null, 8, null, null, 3, null, null, 6],
-    [null, 2, 1, null, null, null, null, 7, 3],
-    [8, 9, null, null, null, null, null, 5, 2],
-    [7, 3, null, null, null, null, 6, 9, null],
-    [2, null, null, 1, null, null, 9, null, 5],
-    [null, null, null, 7, null, 4, 3, null, 8],
-    [3, 5, 4, 2, null, 9, null, null, null]
+    [0, 0, 0, 6, 0, 1, 2, 8, 7],
+    [6, 0, 2, 5, 0, 8, 0, 0, 0],
+    [9, 0, 8, 0, 0, 3, 0, 0, 6],
+    [0, 2, 1, 0, 0, 0, 0, 7, 3],
+    [8, 9, 0, 0, 0, 0, 0, 5, 2],
+    [7, 3, 0, 0, 0, 0, 6, 9, 0],
+    [2, 0, 0, 1, 0, 0, 9, 0, 5],
+    [0, 0, 0, 7, 0, 4, 3, 0, 8],
+    [3, 5, 4, 2, 0, 9, 0, 0, 0]
   ]
 
   console.log(`Length: ${easySudoku.length}`)
   console.log(`Easy sudoku: ${easySudoku}`)
 
   //loop over array
-  //for each number/item I display <input>
-  return (<div>
-    Insert grid here:
-    
-
-  </div>)
-
+  //every row is a div
+  //loop over the items in div
+  //for each number/item in div I display <input>
+  return (
+    <div>
+      Insert grid here:
+      {/* {easySudoku.map((row, rowIndex, arr) => (
+        <div>{row}</div>
+      ))} */}
+      {easySudoku.map((row, index) => (
+        <Cell
+          key={row}
+          row={row}
+        />
+      ))}
+    </div>
+  )
 }
