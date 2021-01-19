@@ -1,4 +1,5 @@
 import React from "react"
+import styled from 'styled-components/macro'
 
 import { Cell } from "./Cell"
 
@@ -26,17 +27,24 @@ export const Grid = () => {
   //loop over the items in div
   //for each number/item in div I display <input>
   return (
-    <div>
-      Insert grid here:
-      {/* {easySudoku.map((row, rowIndex, arr) => (
-        <div>{row}</div>
-      ))} */}
+    <GridWrap>
       {easySudoku.map((row, index) => (
         <Cell
-          key={row}
+          key={index}
           row={row}
         />
       ))}
-    </div>
+    </GridWrap>
   )
 }
+
+// --- STYLED COMPONENTS ---
+
+export const GridWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 380px;
+  border: 1px solid blue;
+  
+`
