@@ -1,22 +1,42 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from 'styled-components/macro'
 
-import { Grid } from "./Grid"
-import { Row } from "./Row"
+// import { Grid } from "./Grid"
+// import { Row } from "./Row"
 
 export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
-  return (
-    <form>
-      <CellInput
-        value={digit}
-        type="number"
+  const [changedDigit, setChangedDigit] = useState("")
+  const originalDigit = digit
+  const isDisabled = originalDigit !== ""
 
-        //TODO: need onChange handler -> track state?
-        onChange={console.log("Changed an input")}
-      //use the indeces here!
-      />
-    </form>
+  if (originalDigit === "") digit = changedDigit
+
+  // console.log(`Changed digit first: ${changedDigit}`)
+
+  return (
+    // <form>
+    <CellInput
+      //"value will ALWAYS be digit"
+      //you MUST update the corresponding state in onChange
+      value={digit}
+      disabled={isDisabled}
+      type="number"
+      max="9"
+      min="1"
+
+      onChange={(event) => {
+        // if (event.target.value > 9) event.target.value = 9
+        // if (event.target.value <= 0) event.target.value = 0
+
+        setChangedDigit(event.target.value)
+
+        //changedDigit = event.target.value
+        console.log(`Changed digit in input ${rowIndex}x${columnIndex} to value: ${changedDigit}`)
+      }}
+    //use the indeces here!
+    />
+    //</form>
   )
 }
 

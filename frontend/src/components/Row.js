@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 
 import { Cell } from "./Cell"
 
-export const Row = ({ row }) => {
+export const Row = ({ row, rowIndex }) => {
 
 
   return (
@@ -15,6 +15,7 @@ export const Row = ({ row }) => {
           key={columnIndex}
           digit={digit}
           columnIndex={columnIndex}
+          rowIndex={rowIndex}
         />
       ))}
     </RowWrap>
