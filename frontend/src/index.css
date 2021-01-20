@@ -13,7 +13,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #F2F2F2;
+  animation-name: PulsingColor;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
 }
+
+@keyframes PulsingColor {
+  0% {
+    background-color: #97BF7A;
+  }
+  25% {
+    background-color: #5E8C5D;
+  }
+  50% {
+    background-color: #204028;
+  }
+  75% {
+    background-color: #5E8C5D;
+  }
+  100% {
+    background-color: #97BF7A;
+  }
+}
+
+/* rest of the colors: */
+
+/* color: #131B26;
+color: #132623; */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;

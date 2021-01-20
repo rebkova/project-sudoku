@@ -19,7 +19,13 @@ export const Grid = () => {
     [3, 5, 4, 2, "", 9, "", "", ""]
   ]
 
-  //TODO: how to access each item in 2D array for tracking state
+  //TODO: how to access each item in 2D array for tracking state?
+
+  // for (i in easySudoku) {
+  //   for (j in easySudoku[i]) {
+  //     console.dir(easySudoku[i][j])
+  //   }
+  // }
 
   console.log(`Length: ${easySudoku.length}`)
   console.log(`Easy sudoku: ${easySudoku}`)
@@ -31,22 +37,26 @@ export const Grid = () => {
   return (
     <GridWrap>
       {/* loop through original 1D array */}
-      {easySudoku.map((row, index) => (
-        <Row
-          key={index}
+      {easySudoku.map((row, rowIndex) => (
+        // console.log(`Row: ${row}`),
+        // console.log(`Type of row: ${typeof row}`),
+        < Row
+          key={rowIndex}
           row={row}
+          rowIndex={rowIndex}
         />
       ))}
     </GridWrap>
   )
 }
 
+
 // --- STYLED COMPONENTS ---
 
 export const GridWrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: 380px;
+  width: 400px;
   border: 1px solid blue;
   
 `

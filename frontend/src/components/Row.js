@@ -8,14 +8,13 @@ export const Row = ({ row }) => {
 
   return (
     <RowWrap>
-      {row.map((item, index) => (
-        <Cell
-          type="number"
-          key={index}
-          digit={item}
-
-          //TODO: need onChange handler -> track state?
-          onChange={console.log("Changed an input")}
+      {row.map((digit, columnIndex) => (
+        // console.log(`Digit: ${digit}`),
+        // console.log(`Type of digit: ${typeof digit}`),
+        < Cell
+          key={columnIndex}
+          digit={digit}
+          columnIndex={columnIndex}
         />
       ))}
     </RowWrap>
@@ -28,6 +27,6 @@ export const RowWrap = styled.div`
 //perhaps delete this styled component?
   display: flex;
   justify-content: center;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 `
 
