@@ -1,42 +1,45 @@
 import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 import styled from 'styled-components/macro'
 
-// import { Grid } from "./Grid"
-// import { Row } from "./Row"
+import { sudoku } from "../reducers/sudoku"
 
 export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
+  //initialises dispatch
+  const dispatch = useDispatch()
+
+  //rI and cI can be used in dispatch or to modify the array directly
+  //dispatch changeCellValue (give it both indeces) and redux will keep track of the grid
+
   const [changedDigit, setChangedDigit] = useState("")
+
   const originalDigit = digit
+
+  //true if the cell already contains a digit -> input field will be disabled
   const isDisabled = originalDigit !== ""
 
+  //empty space can get assigned a new number
   if (originalDigit === "") digit = changedDigit
 
   // console.log(`Changed digit first: ${changedDigit}`)
 
   return (
-    // <form>
+
     <CellInput
-      //"value will ALWAYS be digit"
-      //you MUST update the corresponding state in onChange
+      name={`${rowIndex}, ${columnIndex}`}
       value={digit}
       disabled={isDisabled}
       type="number"
       max="9"
       min="1"
+      // pattern="[1-9]" = value checked against on form submission
 
       onChange={(event) => {
-        // if (event.target.value > 9) event.target.value = 9
-        // if (event.target.value <= 0) event.target.value = 0
-
         setChangedDigit(event.target.value)
-
-        //changedDigit = event.target.value
-        console.log(`Changed digit in input ${rowIndex}x${columnIndex} to value: ${changedDigit}`)
+        console.log(`Changed digit in input ${rowIndex}x${columnIndex} to value: ${digit}`)
       }}
-    //use the indeces here!
     />
-    //</form>
   )
 }
 

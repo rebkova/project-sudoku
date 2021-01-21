@@ -30,4 +30,6 @@ export const RowWrap = styled.div`
   justify-content: center;
   /* border: 1px solid green; */
 `
+//for every columnIndex 2 || 5 border right = thicker
+//for every rowIndex 2 || 5 border bottom = thicker
 
