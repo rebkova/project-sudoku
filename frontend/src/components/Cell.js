@@ -24,10 +24,15 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
   // console.log(`Changed digit first: ${changedDigit}`)
 
+  const onDigitChange = (event) => {
+    setChangedDigit(event.target.value)
+
+    dispatch(sudoku.actions.updateCellValue({ rowIndex, columnIndex, digit }))
+  }
+
   return (
 
     <CellInput
-      name={`${rowIndex}, ${columnIndex}`}
       value={digit}
       disabled={isDisabled}
       type="number"
@@ -35,10 +40,11 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
       min="1"
       // pattern="[1-9]" = value checked against on form submission
 
-      onChange={(event) => {
-        setChangedDigit(event.target.value)
-        console.log(`Changed digit in input ${rowIndex}x${columnIndex} to value: ${digit}`)
-      }}
+      onChange={onDigitChange
+        // setChangedDigit(event.target.value),
+        //   dispatch(sudoku.actions.updateCellValue({ rowIndex, columnIndex })
+        // console.log(`Changed digit in input ${rowIndex}x${columnIndex} to value: ${digit}`)
+      }
     />
   )
 }

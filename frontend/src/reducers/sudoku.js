@@ -22,7 +22,22 @@ export const sudoku = createSlice({
   initialState,
   reducers: {
 
-    updateCell: (store, action) => {
+    updateCellValue: (store, action) => {
+      const rowIndex = action.payload.rowIndex
+      console.log(`rowIndex from reducer: ${rowIndex}`)
+
+      const columnIndex = action.payload.columnIndex
+      console.log(`columnIndex from reducer: ${columnIndex}`)
+
+      const digit = action.payload.digit
+      console.log(`digit from reducer: ${digit}`)
+
+      store.easySudoku[rowIndex][columnIndex] = digit
+
+      // const updatedSudokuArray = [...store.easySudoku, newValue]
+
+      //update the 2D array
+      // store.easySudoku = updatedSudokuArray
 
     }
   }
