@@ -5,10 +5,10 @@ import { Cell } from "./Cell"
 
 export const Row = ({ row, rowIndex }) => {
 
-
   return (
     <RowWrap>
       {row.map((digit, columnIndex) => (
+        //this component re-renders because columnIndex prop is being updated and sent to it?
         // console.log(`Digit: ${digit}`),
         // console.log(`Type of digit: ${typeof digit}`),
         < Cell
@@ -24,12 +24,13 @@ export const Row = ({ row, rowIndex }) => {
 
 // --- STYLED COMPONENTS ---
 
-export const RowWrap = styled.div`
-//perhaps delete this styled component?
+//TODO: apply border bottom! read more: https://styled-components.com/docs/basics#passed-props
+export const RowWrap = styled.div.attrs(props => ({
+  borderBottom: props.rowIndex === 2 || 5 || 8 ? "5px" : "1px"
+}))`
+  //perhaps delete this styled component?
   display: flex;
   justify-content: center;
-  /* border: 1px solid green; */
+  border-bottom: ${props => props.borderBottom}
 `
-//for every columnIndex 2 || 5 border right = thicker
-//for every rowIndex 2 || 5 border bottom = thicker
 

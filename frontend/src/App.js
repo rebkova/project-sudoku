@@ -7,6 +7,7 @@ import { sudoku } from './reducers/sudoku'
 
 //--- components ---
 import { Grid } from "./components/Grid"
+import { Timer } from "./components/Timer"
 
 
 export const reducer = combineReducers({
@@ -22,7 +23,8 @@ export const App = () => {
     <Provider store={store}>
       <main>
         Hello, Sudoku!
-      <Grid />
+        <Timer />
+        <Grid />
       </main>
     </Provider>
   )

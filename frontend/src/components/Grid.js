@@ -1,12 +1,15 @@
 import React from "react"
 import styled from 'styled-components/macro'
+import { useSelector } from "react-redux"
 
 
 import { Row } from "./Row"
 
 
-export const Grid = () => {
 
+export const Grid = () => {
+  const solvedSudoku = useSelector(store => store.sudoku.easySudoku)
+  console.log(`Solved sudoku: ${solvedSudoku}`)
   //2D array
   const easySudoku = [
     ["", "", "", 6, "", 1, 2, 8, 7],
@@ -43,7 +46,7 @@ export const Grid = () => {
   //   }
   // }
 
-  console.log(`Length: ${easySudoku.length}`)
+  // console.log(`Length: ${easySudoku.length}`)
   console.log(`Easy sudoku: ${easySudoku}`)
 
   return (

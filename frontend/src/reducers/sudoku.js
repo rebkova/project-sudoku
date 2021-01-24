@@ -33,6 +33,7 @@ export const sudoku = createSlice({
       console.log(`digit from reducer: ${digit}`)
 
       store.easySudoku[rowIndex][columnIndex] = digit
+      //why is the digit updating with delay?
 
       // const updatedSudokuArray = [...store.easySudoku, newValue]
 
