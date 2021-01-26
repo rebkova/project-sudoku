@@ -9,7 +9,7 @@ import { Row } from "./Row"
 
 export const Grid = () => {
   const solvedSudoku = useSelector(store => store.sudoku.easySudoku)
-  console.log(`Solved sudoku: ${solvedSudoku}`)
+  // console.log(`Solved sudoku: ${solvedSudoku}`)
   //2D array
   const easySudoku = [
     ["", "", "", 6, "", 1, 2, 8, 7],
@@ -47,11 +47,10 @@ export const Grid = () => {
   // }
 
   // console.log(`Length: ${easySudoku.length}`)
-  console.log(`Easy sudoku: ${easySudoku}`)
+  // console.log(`Easy sudoku: ${easySudoku}`)
 
   return (
     <GridWrap>
-      {/* loop through original 1D array */}
       {easySudoku.map((row, rowIndex) => (
         // console.log(`Row: ${row}`),
         // console.log(`Type of row: ${typeof row}`),

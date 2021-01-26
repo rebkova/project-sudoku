@@ -15,7 +15,7 @@ body {
   align-items: center;
   background-color: #F2F2F2;
   animation-name: PulsingColor;
-  animation-duration: 35s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
 }
 
@@ -27,7 +27,7 @@ body {
     background-color: #5E8C5D;
   }
   50% {
-    background-color: #204028;
+    background-color: #547e5e;
   }
   75% {
     background-color: #5E8C5D;

@@ -3,7 +3,9 @@ import styled from "styled-components/macro"
 
 import { Cell } from "./Cell"
 
-export const Row = ({ row, rowIndex }) => {
+export const Row = (props) => {
+
+  const { row, rowIndex } = props
 
   return (
     <RowWrap>

@@ -29,11 +29,15 @@ export const sudoku = createSlice({
       const columnIndex = action.payload.columnIndex
       console.log(`columnIndex from reducer: ${columnIndex}`)
 
-      const digit = action.payload.digit
+      //why is the digit updating with delay?
+      const digit = Number(action.payload.digit) + 1
+
+      console.log(`digit type: ${typeof digit}`)
+
       console.log(`digit from reducer: ${digit}`)
 
       store.easySudoku[rowIndex][columnIndex] = digit
-      //why is the digit updating with delay?
+
 
       // const updatedSudokuArray = [...store.easySudoku, newValue]
 

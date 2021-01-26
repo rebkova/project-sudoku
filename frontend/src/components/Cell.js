@@ -15,11 +15,11 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
   const [changedDigit, setChangedDigit] = useState("")
 
   const originalDigit = digit
-  console.log(`Original digit: ${originalDigit}`)
+  // console.log(`Original digit: ${originalDigit}`)
 
   //true if the cell already contains a digit -> input field will be disabled
   const isDisabled = originalDigit !== ""
-  console.log(`is disabled: ${isDisabled}`)
+  // console.log(`is disabled: ${isDisabled}`)
 
   //empty space can get assigned a new number
   if (originalDigit === "") digit = changedDigit
@@ -27,7 +27,7 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
   // console.log(`Changed digit first: ${changedDigit}`)
 
   const dispatchDigit = () => {
-    console.log(`Digit value before dispatch: ${digit}`)
+    // console.log(`Digit value before dispatch: ${digit}`)
     dispatch(sudoku.actions.updateCellValue({ rowIndex, columnIndex, digit }))
   }
 
@@ -36,8 +36,6 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
     dispatchDigit()
   }
-
-
 
   return (
 
