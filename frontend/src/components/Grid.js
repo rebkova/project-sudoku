@@ -67,7 +67,7 @@ export const Grid = () => {
 
 // --- STYLED COMPONENTS ---
 
-export const GridWrap = styled.div`
+export const GridWrap = styled.form`
   display: flex;
   flex-direction: column;
   width: 400px;

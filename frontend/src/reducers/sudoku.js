@@ -38,12 +38,6 @@ export const sudoku = createSlice({
 
       store.easySudoku[rowIndex][columnIndex] = digit
 
-
-      // const updatedSudokuArray = [...store.easySudoku, newValue]
-
-      //update the 2D array
-      // store.easySudoku = updatedSudokuArray
-
     }
   }
 })
