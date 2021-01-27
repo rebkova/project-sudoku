@@ -12,10 +12,10 @@ export const Timer = () => {
     if (isActive) {
       intervalId = setInterval(() => {
 
-        if (second > 59) {
+        if (second >= 59) {
 
-          setMinute(minute + 1)
           setSecond(0)
+          setMinute(minute + 1)
 
         } else {
           setSecond(second + 1)
@@ -31,7 +31,7 @@ export const Timer = () => {
 
   return (
     <>
-      <div>Time: {minute < 10 ? `0${minute}` : { minute }} : {second < 10 ? `0${second}` : second}</div>
+      <div>Time: {minute < 10 ? `0${minute}` : minute} : {second < 10 ? `0${second}` : second}</div>
       <button onClick={() => setIsActive(!isActive)}>Start/Pause</button>
     </>
   )

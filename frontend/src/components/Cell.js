@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import styled from 'styled-components/macro'
 
@@ -6,11 +6,7 @@ import { sudoku } from "../reducers/sudoku"
 
 export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
-  //initialises dispatch
   const dispatch = useDispatch()
-
-  //rI and cI can be used in dispatch or to modify the array directly
-  //dispatch changeCellValue (give it both indeces) and redux will keep track of the grid
 
   const [changedDigit, setChangedDigit] = useState("")
 
@@ -25,18 +21,21 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
   if (originalDigit === "") digit = changedDigit
 
   // console.log(`Changed digit first: ${changedDigit}`)
+  useEffect(() => {
+    dispatchDigit()
+  }, [digit])
+
 
   const dispatchDigit = () => {
-    // console.log(`Digit value before dispatch: ${digit}`)
+    console.log(`Digit value before dispatch: ${digit}`)
     dispatch(sudoku.actions.updateCellValue({ rowIndex, columnIndex, digit }))
   }
 
   const onDigitChange = (event) => {
     setChangedDigit(event.target.value)
-
-    dispatchDigit()
+    console.log(event.target.value)
   }
-
+  // console.log(`Digit: ${digit}, changedD: ${changedDigit}`)
   return (
 
     <CellInput
@@ -45,13 +44,10 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
       type="number"
       max="9"
       min="1"
-      // pattern="[1-9]" = value checked against on form submission
+      //pattern="[1-9]" //= value checked against on form submission
+      //input type="text" https://stackoverflow.com/questions/469357/html-text-input-allow-only-numeric-input
 
-      onChange={onDigitChange
-        // setChangedDigit(event.target.value),
-        //   dispatch(sudoku.actions.updateCellValue({ rowIndex, columnIndex })
-        // console.log(`Changed digit in input ${rowIndex}x${columnIndex} to value: ${digit}`)
-      }
+      onChange={onDigitChange}
     />
   )
 }

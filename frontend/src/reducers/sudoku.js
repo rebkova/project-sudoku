@@ -30,9 +30,9 @@ export const sudoku = createSlice({
       console.log(`columnIndex from reducer: ${columnIndex}`)
 
       //why is the digit updating with delay?
-      const digit = Number(action.payload.digit) + 1
+      const digit = Number(action.payload.digit)
 
-      console.log(`digit type: ${typeof digit}`)
+      // console.log(`digit type: ${typeof digit}`)
 
       console.log(`digit from reducer: ${digit}`)
 
