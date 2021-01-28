@@ -27,7 +27,7 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
 
   const dispatchDigit = () => {
-    console.log(`Digit value before dispatch: ${digit}`)
+    // console.log(`Digit value before dispatch: ${digit}`)
     dispatch(sudoku.actions.updateCellValue({ rowIndex, columnIndex, digit }))
   }
 

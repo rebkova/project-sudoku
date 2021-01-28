@@ -8,9 +8,10 @@ import { Row } from "./Row"
 
 
 export const Grid = () => {
-  const solvedSudoku = useSelector(store => store.sudoku.easySudoku)
+
   // console.log(`Solved sudoku: ${solvedSudoku}`)
   //2D array
+  //put this one in the DB! and fetch from it too!
   const easySudoku = [
     ["", "", "", 6, "", 1, 2, 8, 7],
     [6, "", 2, 5, "", 8, "", "", ""],
@@ -37,7 +38,7 @@ export const Grid = () => {
 
 
   //TODO:
-  //compare the arrays
+  //compare the 2 arrays
   //if true, show a congrats message / lottie animation
 
   // for (i in easySudoku) {

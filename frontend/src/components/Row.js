@@ -31,10 +31,10 @@ export const RowWrap = styled.div`
   //perhaps delete this styled component?
   display: flex;
   justify-content: center;
-  border: 1px solid pink;
+  /* border: 1px solid pink;
   &::nth-child(3) {
-    border-bottom: 3px solid green;
-  }
+    border-bottom: 3px solid green; */
+  /* } */
   /* border-bottom: ${props => props.borderBottom} */
   /* borderBottom: props.rowIndex === 2 || 5 || 8 ? "5px" : "1px" */
 `
