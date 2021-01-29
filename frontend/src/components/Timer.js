@@ -25,6 +25,7 @@ export const Timer = () => {
     }
 
     //what does this line of code do? https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval
+    //We return a cleanup function to clear the interval when the effect stops running
     return () => clearInterval(intervalId);
 
     //dependancy array
