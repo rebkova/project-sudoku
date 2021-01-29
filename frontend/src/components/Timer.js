@@ -27,6 +27,7 @@ export const Timer = () => {
     //what does this line of code do? https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval
     return () => clearInterval(intervalId);
 
+    //dependancy array
   }, [isActive, second])
 
   return (

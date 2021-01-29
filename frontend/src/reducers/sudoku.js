@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-
+// const initialState = localStorage.setItem()
 const initialState = {
   easySudoku: [
     ["", "", "", 6, "", 1, 2, 8, 7],
@@ -48,6 +48,9 @@ export const sudoku = createSlice({
       // console.log(`digit from reducer: ${digit}`)
 
       store.easySudoku[rowIndex][columnIndex] = digit
+      //localStorage here 
+      // localStorage.setItem("easySudoku", digit)
+      // console.log(localStorage.getItem("easySudoku"))
 
     },
     checkSolution: (store, action) => {

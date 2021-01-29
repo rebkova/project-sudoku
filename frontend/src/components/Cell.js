@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 
 import { sudoku } from "../reducers/sudoku"
 
+
 export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
   const dispatch = useDispatch()
@@ -22,7 +23,9 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
   // console.log(`Changed digit first: ${changedDigit}`)
   useEffect(() => {
+
     dispatchDigit()
+
   }, [digit])
 
 
@@ -33,7 +36,7 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
   const onDigitChange = (event) => {
     setChangedDigit(event.target.value)
-    console.log(event.target.value)
+    // console.log(event.target.value)
   }
   // console.log(`Digit: ${digit}, changedD: ${changedDigit}`)
   return (

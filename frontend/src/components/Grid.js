@@ -1,17 +1,13 @@
 import React from "react"
 import styled from 'styled-components/macro'
-import { useSelector } from "react-redux"
-
 
 import { Row } from "./Row"
 
 
-
 export const Grid = () => {
 
-  // console.log(`Solved sudoku: ${solvedSudoku}`)
-  //2D array
-  //put this one in the DB! and fetch from it too!
+
+  //TODO: put this one in the DB! and fetch from it too!
   const easySudoku = [
     ["", "", "", 6, "", 1, 2, 8, 7],
     [6, "", 2, 5, "", 8, "", "", ""],
@@ -35,17 +31,6 @@ export const Grid = () => {
   //   [1, 6, 9, 7, 5, 4, 3, 2, 8],
   //   [3, 5, 4, 2, 8, 9, 7, 6, 1]
   // ]
-
-
-  //TODO:
-  //compare the 2 arrays
-  //if true, show a congrats message / lottie animation
-
-  // for (i in easySudoku) {
-  //   for (j in easySudoku[i]) {
-  //     console.dir(easySudoku[i][j])
-  //   }
-  // }
 
   // console.log(`Length: ${easySudoku.length}`)
   // console.log(`Easy sudoku: ${easySudoku}`)
@@ -72,6 +57,4 @@ export const GridWrap = styled.form`
   display: flex;
   flex-direction: column;
   width: 400px;
-  border: 1px solid blue;
-  
 `
