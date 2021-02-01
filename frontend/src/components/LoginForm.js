@@ -6,7 +6,8 @@ import styled from 'styled-components'
 
 import { user } from '../reducers/user'
 import { LoginButton } from './LoginButton'
-import { UserMessage } from './UserMessage'
+// import { UserMessage } from './UserMessage'
+import { Grid } from "./Grid"
 import { GoBack } from 'components/GoBack'
 
 //Imported with Material UI 
@@ -24,6 +25,7 @@ export const LoginForm = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  //replace with mine
   const LOGIN_URL = 'https://thessan-rebeka-auth-api.herokuapp.com/sessions'
 
   const [username, setUsername] = useState('');
@@ -112,7 +114,9 @@ export const LoginForm = () => {
       </form>
     );
   } else {
-    return <UserMessage /> //If login is successful, display userMessage
+    // return <UserMessage /> //If login is successful, display userMessage
+    // return <Grid />
+    return "this is the user message" //play sudoku button here!
   }
 };
 

@@ -41,12 +41,12 @@ export const App = () => {
               <SignupForm />
               <LoginHere />
             </Route>
-            <Route>
-              <LoginForm path="/sessions" exact />
+            <Route path="/sessions" exact>
+              <LoginForm />
             </Route>
-            <Route>
-
-            </Route>
+            {/* <Route>
+              <Grid path="/sudoku" />
+            </Route> */}
 
 
           </Wrapper>

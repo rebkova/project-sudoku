@@ -21,7 +21,7 @@ export const LogoutButton = () => {
         type="submit"
         onClick={handleLogout}>
         Logout
-            </Button>
+      </Button>
     </ButtonContainer>
   )
 }
