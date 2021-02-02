@@ -17,12 +17,6 @@ import { LoginForm } from './pages/LoginForm'
 
 //--- components sudoku ---
 import { Sudoku } from "./pages/Sudoku"
-// import { PlayButton } from "./buttons/PlayButton"
-// import { Grid } from "./components/Grid"
-// import { Timer } from "./components/Timer"
-// import { CheckSolutionButton } from "./buttons/CheckSolutionButton"
-
-
 
 
 export const reducer = combineReducers({
@@ -55,7 +49,6 @@ export const App = () => {
 
 
           </Wrapper>
-
         </Switch>
       </BrowserRouter>
     </Provider >
