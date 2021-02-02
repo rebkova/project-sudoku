@@ -25,7 +25,7 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
   useEffect(() => {
 
     dispatchDigit()
-
+    // eslint-disable-next-line
   }, [digit])
 
 

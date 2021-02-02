@@ -5,10 +5,9 @@ import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components'
 
 import { user } from '../reducers/user'
-import { LoginButton } from './LoginButton'
-// import { UserMessage } from './UserMessage'
-import { Grid } from "./Grid"
+import { LoginButton } from '../buttons/LoginButton'
 import { GoBack } from 'components/GoBack'
+import { PlayButton } from 'buttons/PlayButton'
 
 //Imported with Material UI 
 const useStyles = makeStyles((theme) => ({
@@ -88,7 +87,7 @@ export const LoginForm = () => {
         <LoginContainer>
           <WelcomeContainer>
             Please login
-                    </WelcomeContainer>
+          </WelcomeContainer>
 
           <TextField
             id="UsernameLogin"
@@ -114,9 +113,7 @@ export const LoginForm = () => {
       </form>
     );
   } else {
-    // return <UserMessage /> //If login is successful, display userMessage
-    // return <Grid />
-    return "this is the user message" //play sudoku button here!
+    return <PlayButton />
   }
 };
 

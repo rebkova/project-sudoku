@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components/macro'
 
 import { user } from '../reducers/user'
-import { SignupButton } from './SignupButton'
+import { SignupButton } from '../buttons/SignupButton'
 
 //TODO: replace with my own api!
 const SIGNUP_URL = 'https://thessan-rebeka-auth-api.herokuapp.com/users'

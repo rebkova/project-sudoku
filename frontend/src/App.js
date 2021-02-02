@@ -10,15 +10,17 @@ import { user } from './reducers/user'
 
 
 //--- components authentication ---
-import { SignupForm } from './components/SignupForm'
+import { SignupForm } from './pages/SignupForm'
 import { LoginHere } from './components/LoginHere'
-import { LoginForm } from './components/LoginForm'
+import { LoginForm } from './pages/LoginForm'
 
 
 //--- components sudoku ---
-import { Grid } from "./components/Grid"
-import { Timer } from "./components/Timer"
-import { CheckSolutionButton } from "./components/CheckSolutionButton"
+import { Sudoku } from "./pages/Sudoku"
+// import { PlayButton } from "./buttons/PlayButton"
+// import { Grid } from "./components/Grid"
+// import { Timer } from "./components/Timer"
+// import { CheckSolutionButton } from "./buttons/CheckSolutionButton"
 
 
 
@@ -41,21 +43,19 @@ export const App = () => {
               <SignupForm />
               <LoginHere />
             </Route>
+
             <Route path="/sessions" exact>
               <LoginForm />
             </Route>
-            {/* <Route>
-              <Grid path="/sudoku" />
-            </Route> */}
+
+            <Route path="/sudoku" exact >
+              <Sudoku />
+              {/* <Grid /> */}
+            </Route>
 
 
           </Wrapper>
-          {/* <main>
-        Hello, Sudoku!
-        <Timer />
-        <Grid />
-        <CheckSolutionButton />
-      </main> */}
+
         </Switch>
       </BrowserRouter>
     </Provider >

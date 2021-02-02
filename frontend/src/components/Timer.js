@@ -29,6 +29,7 @@ export const Timer = () => {
     return () => clearInterval(intervalId);
 
     //dependancy array
+    // eslint-disable-next-line
   }, [isActive, second])
 
   return (
