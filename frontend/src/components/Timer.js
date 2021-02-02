@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+
 export const Timer = () => {
 
   const [second, setSecond] = useState(0);
@@ -30,12 +31,12 @@ export const Timer = () => {
 
     //dependancy array
     // eslint-disable-next-line
-  }, [isActive, second])
+  }, [second])
 
   return (
     <>
       <div>Time: {minute < 10 ? `0${minute}` : minute} : {second < 10 ? `0${second}` : second}</div>
-      <button onClick={() => setIsActive(!isActive)}>Start/Pause</button>
+      <button onClick={() => setIsActive(!isActive)}>Pause</button>
     </>
   )
 }

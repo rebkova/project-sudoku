@@ -42,7 +42,7 @@ export const App = () => {
               <LoginForm />
             </Route>
 
-            <Route path="/sudoku" exact >
+            <Route path="/sudoku" exact>
               <Sudoku />
               {/* <Grid /> */}
             </Route>

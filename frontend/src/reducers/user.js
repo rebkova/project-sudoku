@@ -30,6 +30,7 @@ export const user = createSlice({
       state.login.accessToken = null;
       state.login.statusMessage = "";
       localStorage.removeItem('accessToken')
+      //remove also sudoku digits, but in which reducer?
     },
   }
 })
