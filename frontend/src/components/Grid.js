@@ -1,11 +1,14 @@
 import React from "react"
 import styled from 'styled-components/macro'
+// import { useSelector } from 'react-redux'
 
 import { Row } from "./Row"
 
 
 export const Grid = () => {
 
+
+  // const easySudoku = useSelector((store) => store.sudoku.easySudoku)
 
   //TODO: put this one in the DB! and fetch from it too!
   const easySudoku = [
@@ -20,26 +23,9 @@ export const Grid = () => {
     [3, 5, 4, 2, "", 9, "", "", ""]
   ]
 
-  // const easySudokuSolution = [
-  //   [5, 4, 3, 6, 9, 1, 2, 8, 7],
-  //   [6, 1, 2, 5, 7, 8, 4, 3, 9],
-  //   [9, 7, 8, 4, 2, 3, 5, 1, 6],
-  //   [4, 2, 1, 9, 6, 5, 8, 7, 3],
-  //   [8, 9, 6, 3, 4, 7, 1, 5, 2],
-  //   [7, 3, 5, 8, 1, 2, 6, 9, 4],
-  //   [2, 8, 7, 1, 3, 6, 9, 4, 5],
-  //   [1, 6, 9, 7, 5, 4, 3, 2, 8],
-  //   [3, 5, 4, 2, 8, 9, 7, 6, 1]
-  // ]
-
-  // console.log(`Length: ${easySudoku.length}`)
-  // console.log(`Easy sudoku: ${easySudoku}`)
-
   return (
     <GridWrap>
       {easySudoku.map((row, rowIndex) => (
-        // console.log(`Row: ${row}`),
-        // console.log(`Type of row: ${typeof row}`),
         < Row
           key={rowIndex}
           row={row}

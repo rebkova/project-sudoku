@@ -26,5 +26,5 @@ Backend:
 - Material UI
 
 ## :eyes: View it live
-- Backend: 
-- Frontend: 
+- Backend: https://rebeka-project-sudoku.herokuapp.com/
+- Frontend: https://rebeka-sudoku-app.netlify.app/

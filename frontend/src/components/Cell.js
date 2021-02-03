@@ -21,7 +21,6 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
   //empty space can get assigned a new number
   if (originalDigit === "") digit = changedDigit
 
-  // console.log(`Changed digit first: ${changedDigit}`)
   useEffect(() => {
 
     dispatchDigit()
