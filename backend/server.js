@@ -4,7 +4,8 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import crypto from 'crypto'
 import bcrypt from 'bcrypt'
-import { isEmail } from 'validator'
+import validator from 'validator';
+const { isEmail } = 'validator'
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-sudoku"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -15,22 +16,22 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     required: true,
-    validate: [isEmail, 'invalid email']
+    validate: [isEmail, 'invalid email'],
   },
   password: {
     type: String,
     required: true,
-    minlength: [5, "The password is too short. Must be min 5 characters."]
+    minlength: [5, 'The password is too short. Must be min 5 characters.'],
   },
   accessToken: {
     type: String,
     default: () => crypto.randomBytes(128).toString('hex'),
-    unique: true
+    unique: true,
   }
 })
 
@@ -54,7 +55,7 @@ userSchema.pre("save", async function (next) {
   user.password = bcrypt.hashSync(user.password, salt);
 
   next();
-})
+});
 
 //create a model
 const User = mongoose.model('User', userSchema);
@@ -63,9 +64,9 @@ const User = mongoose.model('User', userSchema);
 // overridden when starting the server. For example:
 //
 //   PORT=9000 npm start
-const port = process.env.PORT || 8080
-const app = express()
-const listEndpoints = require('express-list-endpoints')
+const port = process.env.PORT || 8080;
+const app = express();
+import listEndpoints from 'express-list-endpoints';
 
 //Function that expects the user's accesstoken and validate access to restricted endpoints
 const authenticateUser = async (request, response, next) => {
@@ -81,27 +82,27 @@ const authenticateUser = async (request, response, next) => {
 }
 
 // Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(bodyParser.json())
+app.use(cors());
+app.use(bodyParser.json());
 
 //middleware f() -> checks if we have a connection with the server (1 = connected)
 app.use((request, response, next) => {
   if (mongoose.connection.readyState === 1) {
-    next()
+    next();
   } else {
-    response.status(503).json({ error: 'Service unavailable' })
+    response.status(503).json({ error: 'Service unavailable' });
   }
-})
+});
 
 //Main API page
 app.get('/', (request, response) => {
 
   if (response) {
-    response.status(200).send(listEndpoints(app))
+    response.status(200).send(listEndpoints(app));
   } else {
-    response.status(404).send("No endpoints found.")
+    response.status(404).send('No endpoints found.');
   }
-})
+});
 
 //SIGN UP ENDPOINT
 //This endpoint registers the user & puts it in the database
@@ -153,10 +154,10 @@ app.get('/sessions/:id/profile', (request, response) => {
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello world, this is my sudoku backend')
-})
+  res.send('Hello world, this is my sudoku backend');
+});
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`)
-})
+  console.log(`Server running on http://localhost:${port}`);
+});
