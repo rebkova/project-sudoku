@@ -31,12 +31,12 @@ export const Timer = () => {
 
     //dependancy array
     // eslint-disable-next-line
-  }, [second])
+  }, [isActive, second])
 
   return (
     <>
       <div>Time: {minute < 10 ? `0${minute}` : minute} : {second < 10 ? `0${second}` : second}</div>
-      <button onClick={() => setIsActive(!isActive)}>Pause</button>
+      <button onClick={() => setIsActive(!isActive)}>Start/Pause</button>
     </>
   )
 }
