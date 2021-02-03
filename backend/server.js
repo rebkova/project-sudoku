@@ -1,11 +1,11 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import cors from 'cors'
-import mongoose from 'mongoose'
-import crypto from 'crypto'
-import bcrypt from 'bcrypt'
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import crypto from 'crypto';
+import bcrypt from 'bcrypt';
 import validator from 'validator';
-const { isEmail } = 'validator'
+const { isEmail } = 'validator';
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-sudoku"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
 
 //pre mongoose-hook: allows hashing after we validate but before we save to DB
 //hook is applied to the schema, not the model()
-userSchema.pre("save", async function (next) {
+userSchema.pre('save', async function (next) {
 
   //the "this" variable has all the data from the userSchema and we can access it
   //"this" is a keyword reffering to "the object you're currently in"
@@ -79,7 +79,7 @@ const authenticateUser = async (request, response, next) => {
   } else {
     response.status(401).json({ message: 'Sorry, authentication failed' });
   }
-}
+};
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -134,7 +134,9 @@ app.post('/sessions', async (request, response) => {
     const user = await User.findOne({ username });
 
     if (user && bcrypt.compareSync(password, user.password)) {
-      response.status(200).json({ userId: user._id, accessToken: user.accessToken }); //Success
+      response
+        .status(200)
+        .json({ userId: user._id, accessToken: user.accessToken }); //Success
     } else {
       throw 'Incorrect username or password'; //If user that's signed up is trying to login but login details are incorrect
     }
