@@ -4,8 +4,8 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 import bcrypt from 'bcrypt';
-import validator from 'validator';
-const { isEmail } = 'validator';
+// import validator from 'validator';
+// const { isEmail } = 'validator';
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-sudoku"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -25,7 +25,8 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   //replace with mine
-  const LOGIN_URL = 'https://thessan-rebeka-auth-api.herokuapp.com/sessions'
+  // const LOGIN_URL = 'https://thessan-rebeka-auth-api.herokuapp.com/sessions'
+  const LOGIN_URL = "https://rebeka-project-sudoku.herokuapp.com/sessions"
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
