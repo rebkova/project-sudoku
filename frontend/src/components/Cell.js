@@ -9,43 +9,49 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
   const dispatch = useDispatch()
 
-  const [changedDigit, setChangedDigit] = useState("")
+  //only initialised when component is mounted! state is not updated in these lines of code!
+  const [changedDigit, setChangedDigit] = useState(digit)
+  const [isDisabled] = useState(digit !== "")
 
-  const originalDigit = digit
+  // const originalDigit = digit
   // console.log(`Original digit: ${originalDigit}`)
 
   //true if the cell already contains a digit -> input field will be disabled
-  const isDisabled = originalDigit !== ""
+  // const isDisabled = changedDigit !== ""
   // console.log(`is disabled: ${isDisabled}`)
 
   //empty space can get assigned a new number
-  if (originalDigit === "") digit = changedDigit
+  // if (originalDigit === "") digit = changedDigit
 
   useEffect(() => {
 
     dispatchDigit()
     // eslint-disable-next-line
-  }, [digit])
+  }, [changedDigit])
 
 
   const dispatchDigit = () => {
     // console.log(`Digit value before dispatch: ${digit}`)
-    dispatch(sudoku.actions.updateCellValue({ rowIndex, columnIndex, digit }))
+    dispatch(sudoku.actions.updateCellValue({ rowIndex, columnIndex, digit: changedDigit }))
   }
 
   const onDigitChange = (event) => {
-    setChangedDigit(event.target.value)
+    //enter the correct regex!
+    if (event.target.value.match(/[1-9]/)) {
+      setChangedDigit(event.target.value)
+    }
+
     // console.log(event.target.value)
   }
   // console.log(`Digit: ${digit}, changedD: ${changedDigit}`)
   return (
 
     <CellInput
-      value={digit}
+      value={changedDigit}
       disabled={isDisabled}
-      type="number"
-      max="9"
-      min="1"
+      type="text"
+      // max="9"
+      // min="1"
       //pattern="[1-9]" //= value checked against on form submission
       //input type="text" https://stackoverflow.com/questions/469357/html-text-input-allow-only-numeric-input
 

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from 'styled-components/macro'
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { Row } from "./Row"
 
@@ -8,20 +8,20 @@ import { Row } from "./Row"
 export const Grid = () => {
 
 
-  // const easySudoku = useSelector((store) => store.sudoku.easySudoku)
+  const easySudoku = useSelector((store) => store.sudoku.easySudoku)
 
   //TODO: put this one in the DB! and fetch from it too!
-  const easySudoku = [
-    ["", "", "", 6, "", 1, 2, 8, 7],
-    [6, "", 2, 5, "", 8, "", "", ""],
-    [9, "", 8, "", "", 3, "", "", 6],
-    ["", 2, 1, "", "", "", "", 7, 3],
-    [8, 9, "", "", "", "", "", 5, 2],
-    [7, 3, "", "", "", "", 6, 9, ""],
-    [2, "", "", 1, "", "", 9, "", 5],
-    ["", "", "", 7, "", 4, 3, "", 8],
-    [3, 5, 4, 2, "", 9, "", "", ""]
-  ]
+  // const easySudoku = [
+  //   ["", "", "", 6, "", 1, 2, 8, 7],
+  //   [6, "", 2, 5, "", 8, "", "", ""],
+  //   [9, "", 8, "", "", 3, "", "", 6],
+  //   ["", 2, 1, "", "", "", "", 7, 3],
+  //   [8, 9, "", "", "", "", "", 5, 2],
+  //   [7, 3, "", "", "", "", 6, 9, ""],
+  //   [2, "", "", 1, "", "", 9, "", 5],
+  //   ["", "", "", 7, "", 4, 3, "", 8],
+  //   [3, 5, 4, 2, "", 9, "", "", ""]
+  // ]
 
   return (
     <GridWrap>
@@ -42,5 +42,5 @@ export const Grid = () => {
 export const GridWrap = styled.form`
   display: flex;
   flex-direction: column;
-  width: 400px;
+  /* width: 400px; */
 `
