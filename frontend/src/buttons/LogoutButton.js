@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 
@@ -15,13 +16,15 @@ export const LogoutButton = () => {
 
   return (
     <ButtonContainer>
-      <Button
-        variant="contained"
-        color="primary"
-        type="submit"
-        onClick={handleLogout}>
-        Logout
+      <Link to={`/sessions`}>
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          onClick={handleLogout}>
+          Logout
       </Button>
+      </Link>
     </ButtonContainer>
   )
 }

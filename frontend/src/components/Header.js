@@ -1,6 +1,8 @@
 import React from "react"
 import styled from 'styled-components/macro'
 
+import { LogoutButton } from "../buttons/LogoutButton"
+
 
 export const Header = () => {
 
@@ -8,7 +10,7 @@ export const Header = () => {
     <HeaderWrap>
       <div>... insert</div>
       <div>header text </div>
-      <div> and logout button here ...</div>
+      <LogoutButton />
 
     </HeaderWrap>
   )
