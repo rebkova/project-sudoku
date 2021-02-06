@@ -4,8 +4,8 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 import bcrypt from 'bcrypt';
-// import validator from 'validator';
-// const { isEmail } = 'validator';
+
+// import LeaderBoard from '../backend/models/leaderboard'
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-sudoku"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -21,7 +21,6 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    // validate: [isEmail, 'invalid email'],
   },
   password: {
     type: String,
@@ -59,6 +58,16 @@ userSchema.pre('save', async function (next) {
 
 //create a model
 const User = mongoose.model('User', userSchema);
+
+const LeaderBoard = new mongoose.model('LeaderBoard', {
+  username: { type: String },
+  time: { type: Number },
+  //perhaps createdAt not neccessary?
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+})
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
@@ -104,6 +113,7 @@ app.get('/', (request, response) => {
   }
 });
 
+
 //SIGN UP ENDPOINT
 //This endpoint registers the user & puts it in the database
 app.post('/users', async (request, response) => {
@@ -145,6 +155,7 @@ app.post('/sessions', async (request, response) => {
   }
 });
 
+
 //Restricted endpoint, only accessible after user has logged in with valid username and access token
 app.get('/sessions/:id/profile', authenticateUser);
 app.get('/sessions/:id/profile', (request, response) => {
@@ -154,9 +165,43 @@ app.get('/sessions/:id/profile', (request, response) => {
   response.status(201).json(userMessage)
 });
 
+//LEADERBOARD -> no need for authentication?
+// app.get('/leaderboard', authenticateUser);
+app.get('/leaderboard', async (request, response) => {
+
+  try {
+    const leaderboard = await LeaderBoard.find()
+      .sort({ time: "desc" })
+      .limit(10)
+      .exec()
+    response.status(200).json(leaderboard)
+  } catch (err) {
+    response.status(400).json({ message: "Could not get the leaderboard data.", errors: err.errors })
+  }
+});
+
+app.post('/leaderboard', async (request, response) => {
+
+  try {
+    const username = request.body.username
+    const time = request.body.time
+
+    const leaderBoard = new LeaderBoard({ username, time })
+
+    const savedLeaderBoard = await leaderBoard.save()
+
+    response.status(201).json(savedLeaderBoard)
+
+  } catch (err) {
+    response.status(400).json({ message: "Bad request. Couldn't save leaderBoard to the database.", errors: err.errors })
+  }
+
+
+})
+
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world, this is my sudoku backend');
+app.get('/', (request, response) => {
+  response.send('Hello world, this is my sudoku backend');
 });
 
 // Start the server

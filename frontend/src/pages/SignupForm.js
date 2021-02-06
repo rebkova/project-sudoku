@@ -7,8 +7,7 @@ import styled from 'styled-components/macro'
 import { user } from '../reducers/user'
 import { SignupButton } from '../buttons/SignupButton'
 
-//TODO: replace with my own api!
-// const SIGNUP_URL = 'https://thessan-rebeka-auth-api.herokuapp.com/users'
+
 const SIGNUP_URL = "https://rebeka-project-sudoku.herokuapp.com/users"
 
 //Imported from Material UI
