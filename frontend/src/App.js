@@ -17,7 +17,7 @@ import { LoginForm } from './pages/LoginForm'
 
 //--- components sudoku ---
 import { Sudoku } from "./pages/Sudoku"
-import { LeaderBoard } from "./components/LeaderBoard"
+import { LeaderBoard } from "./components/Leaderboard"
 
 export const reducer = combineReducers({
   //referring to the key *name* of the reducer
