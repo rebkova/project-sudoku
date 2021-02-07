@@ -3,12 +3,10 @@ import styled from "styled-components/macro"
 
 import { Cell } from "./Cell"
 
-export const Row = (props) => {
-
-  const { row, rowIndex } = props
+export const Row = ({ row, rowIndex }) => {
 
   return (
-    <RowWrap row={rowIndex}>
+    <RowWrap>
       {row.map((digit, columnIndex) => (
         < Cell
           key={columnIndex}

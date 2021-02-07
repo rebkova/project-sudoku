@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 // import styled from 'styled-components/macro'
 
-import { LeaderBoardItem } from "./LeaderBoardItem"
-
-const LEADERBOARD_URL = "https://rebeka-project-sudoku.herokuapp.com/leaderboard"
+import { LEADERBOARD_URL } from '../urls'
+import { LeaderBoardItem } from './LeaderBoardItem'
 
 export const LeaderBoard = () => {
 

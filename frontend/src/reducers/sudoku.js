@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 // const initialState = localStorage.setItem()
 //if the value is updated, save it to localStorage or have it as ""
 const initialState = {
-  easySudoku: JSON.parse(localStorage.getItem('easySudoku')) || [
+  // easySudoku: JSON.parse(localStorage.getItem('easySudoku')) || [
+  easySudoku: [
     ["", "", "", 6, "", 1, 2, 8, 7],
     [6, "", 2, 5, "", 8, "", "", ""],
     [9, "", 8, "", "", 3, "", "", 6],
@@ -29,7 +30,7 @@ const initialState = {
   solution: false
 }
 
-console.log(`from intial state: ${JSON.parse(localStorage.getItem('easySudoku'))}`)
+// console.log(`from intial state: ${JSON.parse(localStorage.getItem('easySudoku'))}`)
 
 export const sudoku = createSlice({
 
@@ -54,8 +55,8 @@ export const sudoku = createSlice({
       store.easySudoku[rowIndex][columnIndex] = digit
 
       //localStorage here 
-      localStorage.setItem("easySudoku", JSON.stringify(store.easySudoku))
-      console.log(`store stuff: ${JSON.stringify(store.easySudoku)}`)
+      // localStorage.setItem("easySudoku", JSON.stringify(store.easySudoku))
+      // console.log(`store stuff: ${JSON.stringify(store.easySudoku)}`)
 
 
     },
