@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react"
+import { useDispatch } from "react-redux"
 
-import { CheckSolutionButton } from "../buttons/CheckSolutionButton"
+import { sudoku } from "../reducers/sudoku"
 
 
 export const Timer = () => {
+  const dispatch = useDispatch()
 
   const [second, setSecond] = useState(0);
   const [minute, setMinute] = useState(0);
@@ -24,6 +26,8 @@ export const Timer = () => {
           setSecond(second + 1)
         }
 
+        dispatch(sudoku.actions.updateTime({ minute, second }))
+
       }, 1000)
     }
 
@@ -40,11 +44,11 @@ export const Timer = () => {
   return (
     <>
       <div>Time: {minute < 10 ? `0${minute}` : minute} : {second < 10 ? `0${second}` : second}</div>
-      <CheckSolutionButton
+      {/* <CheckSolutionButton
         minutes={minute}
         seconds={second}
-      />
-      {/* <button onClick={() => setIsActive(!isActive)}>Start/Pause</button> */}
+      /> */}
+      <button onClick={() => setIsActive(!isActive)}>Start/Pause</button>
     </>
   )
 }
