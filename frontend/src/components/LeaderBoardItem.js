@@ -8,5 +8,4 @@ export const LeaderBoardItem = ({ username, time }) => {
       <li>{username}: {time} seconds</li>
     </div>
   )
-
 }
