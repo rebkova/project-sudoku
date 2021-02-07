@@ -4,11 +4,9 @@ import { useSelector } from "react-redux"
 
 import { Header } from "../components/Header"
 import { Timer } from "../components/Timer"
+import { LEADERBOARD_URL } from "../urls"
 import { Grid } from "../components/Grid"
 
-//const BASE_URL = "https://rebeka-project-sudoku.herokuapp.com/leaderboard"
-// const BASE_URL = "http://localhost:8080"
-const LEADERBOARD_URL = "https://rebeka-project-sudoku.herokuapp.com/leaderboard"
 
 export const Sudoku = () => {
 

@@ -4,10 +4,12 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components'
 
+import { LOGIN_URL } from '../urls'
 import { user } from '../reducers/user'
-import { LoginButton } from '../buttons/LoginButton'
 import { GoBack } from 'components/GoBack'
 import { PlayButton } from 'buttons/PlayButton'
+import { LoginButton } from '../buttons/LoginButton'
+
 
 //Imported with Material UI 
 const useStyles = makeStyles((theme) => ({
@@ -23,8 +25,6 @@ export const LoginForm = () => {
 
   const classes = useStyles();
   const dispatch = useDispatch();
-
-  const LOGIN_URL = "https://rebeka-project-sudoku.herokuapp.com/sessions"
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

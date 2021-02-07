@@ -49,8 +49,6 @@ export const App = () => {
             <Route path="/leaderboard" exact>
               <LeaderBoard />
             </Route>
-
-
           </Wrapper>
         </Switch>
       </BrowserRouter>
