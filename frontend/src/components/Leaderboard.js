@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from 'styled-components/macro'
 
-export const Leaderboard = () => {
+export const LeaderBoard = () => {
 
+  const [time, setTime] = useState(0)
 
   return (
     <div>

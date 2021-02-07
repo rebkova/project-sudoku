@@ -24,7 +24,9 @@ const initialState = {
     [2, 8, 7, 1, 3, 6, 9, 4, 5],
     [1, 6, 9, 7, 5, 4, 3, 2, 8],
     [3, 5, 4, 2, 8, 9, 7, 6, 1]
-  ]
+  ],
+  time: 0,
+  solution: false,
 }
 
 console.log(`from intial state: ${JSON.parse(localStorage.getItem('easySudoku'))}`)
@@ -57,8 +59,21 @@ export const sudoku = createSlice({
 
 
     },
-    checkSolution: (store, action) => {
+    updateTime: (store, action) => {
+      const seconds = action.payload.seconds
+      console.log(`Seconds: ${seconds}`)
 
+      const minutes = action.payload.minutes
+      console.log(`Minutes: ${minutes}`)
+
+      store.time = (minutes * 60) + seconds
+    },
+    updateSolution: (store, action) => {
+      const solution = action.payload.result
+      console.log(`Solution: ${solution}`)
+
+      store.solution = solution
     }
+
   }
 })

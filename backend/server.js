@@ -171,7 +171,7 @@ app.get('/leaderboard', async (request, response) => {
 
   try {
     const leaderboard = await LeaderBoard.find()
-      .sort({ time: "desc" })
+      .sort({ time: "asc" })
       .limit(10)
       .exec()
     response.status(200).json(leaderboard)
@@ -195,14 +195,7 @@ app.post('/leaderboard', async (request, response) => {
   } catch (err) {
     response.status(400).json({ message: "Bad request. Couldn't save leaderBoard to the database.", errors: err.errors })
   }
-
-
 })
-
-// Start defining your routes here
-app.get('/', (request, response) => {
-  response.send('Hello world, this is my sudoku backend');
-});
 
 // Start the server
 app.listen(port, () => {

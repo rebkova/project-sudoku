@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 
+import { CheckSolutionButton } from "../buttons/CheckSolutionButton"
+
 
 export const Timer = () => {
 
@@ -33,10 +35,16 @@ export const Timer = () => {
     // eslint-disable-next-line
   }, [isActive, second])
 
+  //PLAN: add checkSolutionButton here and send minutes/seconds as props
+
   return (
     <>
       <div>Time: {minute < 10 ? `0${minute}` : minute} : {second < 10 ? `0${second}` : second}</div>
-      <button onClick={() => setIsActive(!isActive)}>Start/Pause</button>
+      <CheckSolutionButton
+        minutes={minute}
+        seconds={second}
+      />
+      {/* <button onClick={() => setIsActive(!isActive)}>Start/Pause</button> */}
     </>
   )
 }

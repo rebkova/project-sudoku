@@ -1,8 +1,12 @@
-import React, { useState } from "react"
-import { useSelector } from "react-redux"
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+
+import { sudoku } from "../reducers/sudoku"
 
 
-export const CheckSolutionButton = () => {
+export const CheckSolutionButton = ({ minutes, seconds }) => {
+
+  const dispatch = useDispatch()
 
   const [result, setResult] = useState(undefined)
 
@@ -32,7 +36,20 @@ export const CheckSolutionButton = () => {
 
   }
 
+  const dispatchTime = () => {
+    dispatch(sudoku.actions.updateTime({ minutes, seconds }))
+  }
+
+  const dispatchSolution = () => {
+    dispatch(sudoku.actions.updateSolution({ result }))
+  }
   // console.log(`is correct: ${isCorrect()}`)
+
+  useEffect(() => {
+    dispatchTime()
+    dispatchSolution()
+  }, [result])
+
 
   return (
     <>
