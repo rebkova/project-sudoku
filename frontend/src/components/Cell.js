@@ -28,22 +28,20 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
   }
 
   const onDigitChange = (event) => {
-    //enter the correct regex!
-    const regEx = /[1-9]/
+
+    const regEx = /[1-9]?/
     if ((event.target.value.match(regEx)) && (event.target.value.length === 1)) {
       setChangedDigit(event.target.value)
     }
-
-    // console.log(event.target.value)
   }
-  // console.log(`Digit: ${digit}, changedD: ${changedDigit}`)
+
   return (
 
     <CellInput
       value={changedDigit}
       disabled={isDisabled}
-      type="number"
-      // type="text"
+      // type="number"
+      type="text"
       max="9"
       min="1"
       onChange={onDigitChange}

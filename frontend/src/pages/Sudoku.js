@@ -29,9 +29,7 @@ export const Sudoku = () => {
         }
       }
     }
-
     return true
-
   }
 
   if (accessToken) {
