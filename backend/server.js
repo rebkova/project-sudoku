@@ -69,6 +69,21 @@ const LeaderBoard = new mongoose.model('LeaderBoard', {
   }
 })
 
+//clear the database
+if (process.env.RESET_DATABASE) {
+  const clearDatabase = async () => {
+    await User.remove({}, () => {
+      console.log(`User db removed`)
+    })
+
+    await LeaderBoard.remove({}, () => {
+      console.log(`LeaderBoard db removed`)
+    })
+  }
+
+  clearDatabase()
+}
+
 // Defines the port the app will run on. Defaults to 8080, but can be 
 // overridden when starting the server. For example:
 //
@@ -166,7 +181,7 @@ app.get('/sessions/:id/profile', (request, response) => {
 });
 
 //LEADERBOARD -> no need for authentication?
-// app.get('/leaderboard', authenticateUser);
+app.get('/leaderboard', authenticateUser);
 app.get('/leaderboard', async (request, response) => {
 
   try {

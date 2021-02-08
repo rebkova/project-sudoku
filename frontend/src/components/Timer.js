@@ -43,11 +43,7 @@ export const Timer = () => {
 
   return (
     <>
-      <div>Time: {minute < 10 ? `0${minute}` : minute} : {second < 10 ? `0${second}` : second}</div>
-      {/* <CheckSolutionButton
-        minutes={minute}
-        seconds={second}
-      /> */}
+      <div>time {minute < 10 ? `0${minute}` : minute} : {second < 10 ? `0${second}` : second}</div>
       <button onClick={() => setIsActive(!isActive)}>Start/Pause</button>
     </>
   )

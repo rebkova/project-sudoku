@@ -1,12 +1,11 @@
 import React from "react"
-import styled from 'styled-components/macro'
 import { useSelector } from 'react-redux'
+import styled from 'styled-components/macro'
 
 import { Row } from "./Row"
 
 
 export const Grid = () => {
-
 
   const easySudoku = useSelector((store) => store.sudoku.easySudoku)
 
@@ -42,5 +41,4 @@ export const Grid = () => {
 export const GridWrap = styled.form`
   display: flex;
   flex-direction: column;
-  /* width: 400px; */
 `

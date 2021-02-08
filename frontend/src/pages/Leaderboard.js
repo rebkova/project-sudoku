@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 // import styled from 'styled-components/macro'
 
+import { Header } from '../components/Header'
 import { LEADERBOARD_URL } from '../urls'
-import { LeaderBoardItem } from './LeaderBoardItem'
+import { LeaderBoardItem } from '../components/LeaderBoardItem'
 
 export const LeaderBoard = () => {
 
@@ -19,6 +20,7 @@ export const LeaderBoard = () => {
 
   return (
     <div>
+      <Header />
       <h1>Leaderboard:</h1>
       {results.map(result => (
         <LeaderBoardItem

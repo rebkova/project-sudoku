@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components/macro'
+import React, { useState } from 'react'
 
 import { SIGNUP_URL } from '../urls'
 import { user } from '../reducers/user'
 import { SignupButton } from '../buttons/SignupButton'
 
-
-// const SIGNUP_URL = "https://rebeka-project-sudoku.herokuapp.com/users"
 
 //Imported from Material UI
 const useStyles = makeStyles((theme) => ({

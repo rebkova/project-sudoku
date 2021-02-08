@@ -4,11 +4,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components'
 
+import { Welcome } from './Welcome'
 import { LOGIN_URL } from '../urls'
 import { user } from '../reducers/user'
 import { GoBack } from 'components/GoBack'
-import { PlayButton } from 'buttons/PlayButton'
+// import { PlayButton } from 'buttons/PlayButton'
 import { LoginButton } from '../buttons/LoginButton'
+
 
 
 //Imported with Material UI 
@@ -112,7 +114,8 @@ export const LoginForm = () => {
       </form>
     );
   } else {
-    return <PlayButton />
+    return <Welcome />
+    // return <PlayButton />
   }
 };
 
