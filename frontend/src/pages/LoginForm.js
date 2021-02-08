@@ -8,7 +8,6 @@ import { Welcome } from './Welcome'
 import { LOGIN_URL } from '../urls'
 import { user } from '../reducers/user'
 import { GoBack } from 'components/GoBack'
-// import { PlayButton } from 'buttons/PlayButton'
 import { LoginButton } from '../buttons/LoginButton'
 
 
@@ -115,7 +114,6 @@ export const LoginForm = () => {
     );
   } else {
     return <Welcome />
-    // return <PlayButton />
   }
 };
 

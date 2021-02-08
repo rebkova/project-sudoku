@@ -17,7 +17,7 @@ import { LoginForm } from './pages/LoginForm'
 
 //--- components sudoku ---
 import { Sudoku } from "./pages/Sudoku"
-import { LeaderBoard } from "./components/Leaderboard"
+import { LeaderBoard } from "./pages/Leaderboard"
 
 export const reducer = combineReducers({
   //referring to the key *name* of the reducer
@@ -35,7 +35,7 @@ export const App = () => {
           <Wrapper>
             <Route path="/" exact>
               <SignupForm />
-              <LoginHere />
+              <LoginHere text={"Already have an account?"} />
             </Route>
 
             <Route path="/sessions" exact>

@@ -1,13 +1,16 @@
 import React, { useState } from "react"
+import { useSelector } from "react-redux"
 // import styled from 'styled-components/macro'
 
-import { Header } from '../components/Header'
 import { LEADERBOARD_URL } from '../urls'
+import { LoginHere } from "../components/LoginHere"
+import { Header } from '../components/Header'
 import { LeaderBoardItem } from '../components/LeaderBoardItem'
 
 export const LeaderBoard = () => {
 
   const [results, setResults] = useState([])
+  const accessToken = useSelector((store) => store.user.login.accessToken)
 
   const fetchLeaderBoard = () => {
     fetch(LEADERBOARD_URL)
@@ -17,21 +20,24 @@ export const LeaderBoard = () => {
   }
   console.log(`Results: ${results}`)
 
+  if (accessToken) {
+    return (
+      <div>
+        <Header />
+        <h1>Leaderboard:</h1>
+        {results.map(result => (
+          <LeaderBoardItem
+            key={result._id}
+            username={result.username}
+            time={result.time}
+          />
 
-  return (
-    <div>
-      <Header />
-      <h1>Leaderboard:</h1>
-      {results.map(result => (
-        <LeaderBoardItem
-          key={result._id}
-          username={result.username}
-          time={result.time}
-        />
-
-      ))}
-      <button onClick={fetchLeaderBoard}>Show leaderboard</button>
-    </div>
-  )
+        ))}
+        <button onClick={fetchLeaderBoard}>Show leaderboard</button>
+      </div>
+    )
+  } else {
+    return <LoginHere text={"To see the leaderboard please"} />
+  }
 
 }

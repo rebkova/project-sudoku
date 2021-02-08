@@ -32,4 +32,5 @@ export const LogoutButton = () => {
 const ButtonContainer = styled.div`
   margin-top: 10px;
   margin-bottom: 20px;
+  border: 1px solid red;
 `

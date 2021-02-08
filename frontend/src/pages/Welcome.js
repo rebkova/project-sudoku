@@ -4,6 +4,7 @@ import { Header } from '../components/Header'
 import { PlayButton } from '../buttons/PlayButton'
 
 export const Welcome = () => {
+  //get & displaythe username!
 
   return (
     <>
