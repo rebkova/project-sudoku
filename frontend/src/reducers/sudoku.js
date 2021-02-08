@@ -48,8 +48,8 @@ export const sudoku = createSlice({
       //why is the digit updating with delay?
 
       //remove THAT!
-      // const digit = Number(action.payload.digit)
-      const digit = action.payload.digit
+      const digit = Number(action.payload.digit)
+      // const digit = action.payload.digit
 
       // console.log(`digit type: ${typeof digit}`)
 

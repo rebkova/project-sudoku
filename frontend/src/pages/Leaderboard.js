@@ -3,8 +3,8 @@ import { useSelector } from "react-redux"
 // import styled from 'styled-components/macro'
 
 import { LEADERBOARD_URL } from '../urls'
-import { LoginHere } from "../components/LoginHere"
 import { Header } from '../components/Header'
+import { LoginHere } from "../components/LoginHere"
 import { LeaderBoardItem } from '../components/LeaderBoardItem'
 
 export const LeaderBoard = () => {
@@ -15,7 +15,8 @@ export const LeaderBoard = () => {
   const fetchLeaderBoard = () => {
     fetch(LEADERBOARD_URL)
       .then(response => response.json())
-      .then(data => setResults(data))
+      .then(data => console.log(`Data: ${data.username}`))
+      // .then(data => setResults(data))
       .catch(error => console.error(error));
   }
   console.log(`Results: ${results}`)

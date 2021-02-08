@@ -40,8 +40,8 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
     <CellInput
       value={changedDigit}
       disabled={isDisabled}
-      // type="number"
-      type="text"
+      type="number"
+      // type="text"
       max="9"
       min="1"
       onChange={onDigitChange}

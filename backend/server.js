@@ -181,7 +181,7 @@ app.get('/sessions/:id/profile', (request, response) => {
 });
 
 //LEADERBOARD -> no need for authentication?
-app.get('/leaderboard', authenticateUser);
+// app.get('/leaderboard', authenticateUser);
 app.get('/leaderboard', async (request, response) => {
 
   try {
