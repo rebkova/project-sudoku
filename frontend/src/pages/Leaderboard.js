@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
+import Button from '@material-ui/core/Button'
 // import styled from 'styled-components/macro'
 
 import { LEADERBOARD_URL } from '../urls'
@@ -15,8 +16,7 @@ export const LeaderBoard = () => {
   const fetchLeaderBoard = () => {
     fetch(LEADERBOARD_URL)
       .then(response => response.json())
-      .then(data => console.log(`Data: ${data.username}`))
-      // .then(data => setResults(data))
+      .then(data => setResults(data))
       .catch(error => console.error(error));
   }
   console.log(`Results: ${results}`)
@@ -34,11 +34,32 @@ export const LeaderBoard = () => {
           />
 
         ))}
-        <button onClick={fetchLeaderBoard}>Show leaderboard</button>
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          onClick={fetchLeaderBoard}
+        >
+          Show leaderboard
+        </Button>
       </div>
     )
   } else {
     return <LoginHere text={"To see the leaderboard please"} />
   }
-
 }
+
+// --- STYLED COMPONENTS ---
+
+// const Button = styled.button`
+//   align-self: center;
+//   font-size: 20px;
+//   font-family: 'Patrick Hand', cursive;
+//   background-color: #F2B90C;
+//   color: #594020;
+//   padding: 10px 15px;
+//   margin: 8px 0;
+//   border: 1px solid #594020;
+//   border-radius: 5px;
+//   cursor: pointer;
+// `

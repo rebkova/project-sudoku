@@ -40,16 +40,14 @@ export const sudoku = createSlice({
 
     updateCellValue: (store, action) => {
       const rowIndex = action.payload.rowIndex
-      // console.log(`rowIndex from reducer: ${rowIndex}`)
 
       const columnIndex = action.payload.columnIndex
-      // console.log(`columnIndex from reducer: ${columnIndex}`)
 
       //why is the digit updating with delay?
 
       //remove THAT!
-      const digit = Number(action.payload.digit)
-      // const digit = action.payload.digit
+      // const digit = Number(action.payload.digit)
+      const digit = action.payload.digit
 
       // console.log(`digit type: ${typeof digit}`)
 

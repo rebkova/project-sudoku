@@ -21,7 +21,6 @@ export const Row = ({ row, rowIndex }) => {
 
 // --- STYLED COMPONENTS ---
 
-//TODO: apply border bottom! read more: https://styled-components.com/docs/basics#passed-props
 export const RowWrap = styled.div`
   display: flex;
   justify-content: center;

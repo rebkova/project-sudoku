@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux"
+// import styled from "styled-components/macro"
+import Button from '@material-ui/core/Button'
 
 import { LoginHere } from "../components/LoginHere"
 import { Header } from "../components/Header"
@@ -23,9 +25,10 @@ export const Sudoku = () => {
 
       for (let j = 0; j < solution[i].length; j++) {
 
-        if (solution[i][j] !== puzzle[i][j]) {
+        if (solution[i][j] !== Number(puzzle[i][j])) {
 
           return false
+
         }
       }
     }
@@ -40,12 +43,15 @@ export const Sudoku = () => {
         <Timer />
         <Grid />
         <Link to={`/leaderboard`}>
-          <button
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
             onClick={() => {
 
               console.log(elapsedSeconds)
 
-              if (isCorrect()) alert("Hej, this is true!")
+              if (isCorrect()) console.log("Hej, this is true!")
               else console.log("This is false!")
 
               fetch(LEADERBOARD_URL, {
@@ -66,7 +72,7 @@ export const Sudoku = () => {
 
             }}>
             Check solution!
-        </button>
+        </Button>
         </Link>
       </>
 
@@ -74,5 +80,20 @@ export const Sudoku = () => {
   } else {
     return <LoginHere text={"Want to play sudoku?"} />
   }
-
 }
+
+// --- STYLED COMPONENTS ---
+
+// const CheckSolutionButton = styled.button`
+//   align-self: center;
+//   font-size: 20px;
+//   font-family: 'Patrick Hand', cursive;
+//   background-color: #F2B90C;
+//   color: #594020;
+//   padding: 10px 15px;
+//   margin: 8px 0;
+//   border: 1px solid #594020;
+//   border-radius: 5px;
+//   cursor: pointer;
+
+// `

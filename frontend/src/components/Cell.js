@@ -58,25 +58,36 @@ export const Cell = ({ digit, rowIndex, columnIndex }) => {
 
 export const CellInput = styled.input`
   box-sizing: border-box;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center; 
   width: 35px;
   height: 35px;
-  border: 1px solid grey;
-  border-top: ${(props) => props.rowIndex === 0 ? `2px solid black` : ``};
+  border: 0.5px solid #D9D9D9;
+  border-top: ${(props) => props.rowIndex === 0 ? `2px solid #0D0D0D` : ``};
   border-right: ${(props) =>
     props.columnIndex === 2
-      ? `2px solid black`
+      ? `2px solid #0D0D0D`
       : props.columnIndex === 5
-        ? `2px solid black`
+        ? `2px solid #0D0D0D`
         : props.columnIndex === 8
-          ? `2px solid black`
+          ? `2px solid #0D0D0D`
           : ``};
   border-bottom: ${(props) =>
     props.rowIndex === 2
-      ? `2px solid black`
+      ? `2px solid #0D0D0D`
       : props.rowIndex === 5
-        ? `2px solid black`
+        ? `2px solid #0D0D0D`
         : props.rowIndex === 8
-          ? `2px solid black`
+          ? `2px solid #0D0D0D`
           : ``};
-  border-left: ${(props) => props.columnIndex === 0 ? `2px solid black` : ``};
+  border-left: ${(props) => props.columnIndex === 0 ? `2px solid #0D0D0D` : ``};
+
+  &:focus {
+    outline: none;
+    border:1px solid blue;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #719ECE;
+  }
+  
 `

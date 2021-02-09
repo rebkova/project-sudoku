@@ -28,6 +28,7 @@ const store = configureStore({ reducer });
 
 
 export const App = () => {
+
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -60,5 +61,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid blue;
+  margin-bottom: 15px;
+  /* border: 1px solid blue; */
 `
