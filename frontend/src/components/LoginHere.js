@@ -11,5 +11,4 @@ export const LoginHere = ({ text }) => {
 
 const LoginText = styled.p`
 font-size: 15px;
-color:blueviolet;
 `

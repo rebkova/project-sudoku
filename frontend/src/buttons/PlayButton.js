@@ -13,7 +13,7 @@ export const PlayButton = () => {
           color="primary"
           type="submit"
         >
-          Play Sudoku!
+          Play!
       </Button>
       </Link>
     </ButtonContainer >

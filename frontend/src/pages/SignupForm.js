@@ -131,7 +131,7 @@ const FormContainer = styled.div`
 `
 
 const WelcomeContainer = styled.h1`
-    color: darkblue;
+    /* color: darkblue; */
     font-size: 25px;
     /* margin-top: -10x; */
     padding-bottom: 15px;
