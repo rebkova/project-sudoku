@@ -35,6 +35,26 @@ export const Sudoku = () => {
     return true
   }
 
+  const postToLeaderboard = () => {
+    fetch(LEADERBOARD_URL, {
+      method: 'POST',
+      body: JSON.stringify({ username: 'Rebeka', time: elapsedSeconds }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((response) => {
+
+        console.log(response.json())
+        if (!response.ok) {
+          // eslint-disable-next-line
+          throw "Sorry, could not post to leaderboard";
+        }
+        else console.log("response was ok!")
+        // return response.json();
+      })
+  }
+
+
+
   if (accessToken) {
 
     return (
@@ -54,21 +74,23 @@ export const Sudoku = () => {
               if (isCorrect()) console.log("Hej, this is true!")
               else console.log("This is false!")
 
-              fetch(LEADERBOARD_URL, {
-                method: 'POST',
-                body: JSON.stringify({ username: 'Rebeka', time: elapsedSeconds }),
-                headers: { 'Content-Type': 'application/json' },
-              })
-                .then((response) => {
+              postToLeaderboard()
 
-                  console.log(response.json())
-                  if (!response.ok) {
-                    // eslint-disable-next-line
-                    throw "Sorry, could not post to leaderboard";
-                  }
-                  else console.log("response was ok!")
-                  // return response.json();
-                })
+              // fetch(LEADERBOARD_URL, {
+              //   method: 'POST',
+              //   body: JSON.stringify({ username: 'Rebeka', time: elapsedSeconds }),
+              //   headers: { 'Content-Type': 'application/json' },
+              // })
+              //   .then((response) => {
+
+              //     console.log(response.json())
+              //     if (!response.ok) {
+              //       // eslint-disable-next-line
+              //       throw "Sorry, could not post to leaderboard";
+              //     }
+              //     else console.log("response was ok!")
+              //     // return response.json();
+              //   })
 
             }}>
             Check solution!

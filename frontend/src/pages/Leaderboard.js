@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import Button from '@material-ui/core/Button'
-// import styled from 'styled-components/macro'
+import styled from 'styled-components/macro'
 
-import { LEADERBOARD_URL } from '../urls'
+// import { LEADERBOARD_URL } from '../urls'
+import { LEAD } from '../urls'
 import { Header } from '../components/Header'
 import { LoginHere } from "../components/LoginHere"
 import { LeaderBoardItem } from '../components/LeaderBoardItem'
@@ -14,7 +15,7 @@ export const LeaderBoard = () => {
   const accessToken = useSelector((store) => store.user.login.accessToken)
 
   const fetchLeaderBoard = () => {
-    fetch(LEADERBOARD_URL)
+    fetch(`http://localhost:8080/${LEAD}`)
       .then(response => response.json())
       .then(data => setResults(data))
       .catch(error => console.error(error));
@@ -23,17 +24,20 @@ export const LeaderBoard = () => {
 
   if (accessToken) {
     return (
-      <div>
+      <>
         <Header />
-        <h1>Leaderboard:</h1>
-        {results.map(result => (
-          <LeaderBoardItem
-            key={result._id}
-            username={result.username}
-            time={result.time}
-          />
-
-        ))}
+        <LeadWrap>
+          <h1>Top 10</h1>
+          <ListWrap>
+            {results.map(result => (
+              <LeaderBoardItem
+                key={result._id}
+                username={result.username}
+                time={result.time}
+              />
+            ))}
+          </ListWrap>
+        </LeadWrap>
         <Button
           variant="contained"
           color="primary"
@@ -42,7 +46,7 @@ export const LeaderBoard = () => {
         >
           Show leaderboard
         </Button>
-      </div>
+      </>
     )
   } else {
     return <LoginHere text={"To see the leaderboard please"} />
@@ -51,15 +55,16 @@ export const LeaderBoard = () => {
 
 // --- STYLED COMPONENTS ---
 
-// const Button = styled.button`
-//   align-self: center;
-//   font-size: 20px;
-//   font-family: 'Patrick Hand', cursive;
-//   background-color: #F2B90C;
-//   color: #594020;
-//   padding: 10px 15px;
-//   margin: 8px 0;
-//   border: 1px solid #594020;
-//   border-radius: 5px;
-//   cursor: pointer;
-// `
+const LeadWrap = styled.div`
+  width: 400px;
+  border: 1px solid blue;
+
+`
+
+const ListWrap = styled.ol`
+  border: 1px solid orange;
+  padding: 3px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+`

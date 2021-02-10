@@ -5,7 +5,8 @@ import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components'
 
 import { Welcome } from './Welcome'
-import { LOGIN_URL } from '../urls'
+// import { LOGIN_URL } from '../urls'
+import { SESH } from '../urls'
 import { user } from '../reducers/user'
 import { GoBack } from 'components/GoBack'
 import { LoginButton } from '../buttons/LoginButton'
@@ -59,7 +60,7 @@ export const LoginForm = () => {
   const onLogin = (event) => {
     event.preventDefault();
 
-    fetch(LOGIN_URL, {
+    fetch(`http://localhost:8080/${SESH}`, {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
