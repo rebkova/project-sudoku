@@ -3,8 +3,8 @@ import { useSelector } from "react-redux"
 import Button from '@material-ui/core/Button'
 import styled from 'styled-components/macro'
 
-// import { LEADERBOARD_URL } from '../urls'
-import { LEAD } from '../urls'
+import { LEADERBOARD_URL } from '../urls'
+// import { LEAD } from '../urls'
 import { Header } from '../components/Header'
 import { LoginHere } from "../components/LoginHere"
 import { LeaderBoardItem } from '../components/LeaderBoardItem'
@@ -15,7 +15,7 @@ export const LeaderBoard = () => {
   const accessToken = useSelector((store) => store.user.login.accessToken)
 
   const fetchLeaderBoard = () => {
-    fetch(`http://localhost:8080/${LEAD}`)
+    fetch(LEADERBOARD_URL)
       .then(response => response.json())
       .then(data => setResults(data))
       .catch(error => console.error(error));
@@ -27,7 +27,7 @@ export const LeaderBoard = () => {
       <>
         <Header />
         <LeadWrap>
-          <h1>Top 10</h1>
+          <Title>Top 10</Title>
           <ListWrap>
             {results.map(result => (
               <LeaderBoardItem
@@ -56,15 +56,24 @@ export const LeaderBoard = () => {
 // --- STYLED COMPONENTS ---
 
 const LeadWrap = styled.div`
-  width: 400px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
   border: 1px solid blue;
+`
 
+const Title = styled.h1`
+  align-self: center;
+  font-size: 27px;
+  margin-top: 0;
 `
 
 const ListWrap = styled.ol`
-  border: 1px solid orange;
+  list-style-type: none;
   padding: 3px;
   margin: 5px;
   display: flex;
   flex-direction: column;
+
+  border: 1px solid orange;
 `

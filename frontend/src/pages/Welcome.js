@@ -11,9 +11,8 @@ export const Welcome = () => {
   return (
     <>
       <Header />
-      <h2>How to play sudoku</h2>
+      <h2>How to play</h2>
       <Section>
-
         <InstructionList />
       </Section>
       <PlayButton />

@@ -85,9 +85,9 @@ export const CellInput = styled.input`
 
   &:focus {
     outline: none;
-    border:1px solid blue;
+    border:1px solid #4d52d6;
     border-radius: 3px;
-    box-shadow: 0 0 10px #719ECE;
+    box-shadow: 0 0 10px #4d52d6;
   }
   
 `

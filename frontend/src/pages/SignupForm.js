@@ -4,9 +4,9 @@ import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 
-// import { SIGNUP_URL } from '../urls'
+import { SIGNUP_URL } from '../urls'
 // import { BASE_URL } from '../urls'
-import { USERS } from '../urls'
+// import { USERS } from '../urls'
 import { user } from '../reducers/user'
 import { SignupButton } from '../buttons/SignupButton'
 
@@ -61,7 +61,7 @@ export const SignupForm = () => {
 
     event.preventDefault();
 
-    fetch(`http://localhost:8080/${USERS}`, {
+    fetch(SIGNUP_URL, {
       method: 'POST',
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
