@@ -59,7 +59,7 @@ userSchema.pre('save', async function (next) {
 //create a model
 const User = mongoose.model('User', userSchema);
 
-const LeaderBoard = new mongoose.model('LeaderBoard', {
+const LeaderBoard = mongoose.model('LeaderBoard', {
   username: { type: String },
   time: { type: Number },
   //perhaps createdAt not neccessary?
@@ -72,11 +72,11 @@ const LeaderBoard = new mongoose.model('LeaderBoard', {
 //clear the database
 if (process.env.RESET_DATABASE) {
   const clearDatabase = async () => {
-    await User.remove({}, () => {
+    await User.deleteMany({}, () => {
       console.log(`User db removed`)
     })
 
-    await LeaderBoard.remove({}, () => {
+    await LeaderBoard.deleteMany({}, () => {
       console.log(`LeaderBoard db removed`)
     })
   }
