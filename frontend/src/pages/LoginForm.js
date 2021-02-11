@@ -81,7 +81,7 @@ export const LoginForm = () => {
     setPassword("")
   }
 
-  if (!accessToken) {
+  if (!accessToken || accessToken === null) {
 
     return (
       <form className={classes.root} onSubmit={onLogin} noValidate autoComplete="off">
