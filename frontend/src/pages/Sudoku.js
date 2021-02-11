@@ -1,17 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useSelector } from "react-redux"
+import React, { useState, useEffect } from 'react'
+// import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux"
 // import styled from "styled-components/macro"
 import Button from '@material-ui/core/Button'
 
 import { LoginHere } from "../components/LoginHere"
 import { Header } from "../components/Header"
+import { sudoku } from "../reducers/sudoku"
 import { Timer } from "../components/Timer"
 import { LEADERBOARD_URL } from "../urls"
 import { Grid } from "../components/Grid"
 
 
 export const Sudoku = () => {
+
+  const dispatch = useDispatch()
+
+  const [result, setResult] = useState(false)
 
   const puzzle = useSelector(store => store.sudoku.easySudoku)
   const solution = useSelector(store => store.sudoku.easySudokuSolution)
@@ -54,7 +59,32 @@ export const Sudoku = () => {
       })
   }
 
+  const dispatchResult = () => {
+    dispatch(sudoku.actions.updateResult({ result }))
+  }
 
+  useEffect(() => {
+
+    dispatchResult()
+    // eslint-disable-next-line
+  }, [result])
+
+  const evaluateGame = () => {
+
+    if (isCorrect()) {
+      if (elapsedSeconds > 30) {
+
+        postToLeaderboard()
+        setResult(true)
+        alert("Hej, this is true!")
+
+      } else setResult(true)
+
+    } else {
+      alert("This is false!")
+      setResult(false)
+    }
+  }
 
   if (accessToken) {
 
@@ -63,40 +93,15 @@ export const Sudoku = () => {
         <Header />
         <Timer />
         <Grid />
-        <Link to={`/leaderboard`}>
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            onClick={() => {
-
-              console.log(elapsedSeconds)
-
-              if (isCorrect()) console.log("Hej, this is true!")
-              else console.log("This is false!")
-
-              postToLeaderboard()
-
-              // fetch(LEADERBOARD_URL, {
-              //   method: 'POST',
-              //   body: JSON.stringify({ username: 'Rebeka', time: elapsedSeconds }),
-              //   headers: { 'Content-Type': 'application/json' },
-              // })
-              //   .then((response) => {
-
-              //     console.log(response.json())
-              //     if (!response.ok) {
-              //       // eslint-disable-next-line
-              //       throw "Sorry, could not post to leaderboard";
-              //     }
-              //     else console.log("response was ok!")
-              //     // return response.json();
-              //   })
-
-            }}>
-            Check solution!
+        {/* <Link to={`/leaderboard`}> */}
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          onClick={evaluateGame}>
+          Check solution!
         </Button>
-        </Link>
+        {/* </Link> */}
       </>
 
     )
@@ -104,19 +109,3 @@ export const Sudoku = () => {
     return <LoginHere text={"Want to play sudoku?"} />
   }
 }
-
-// --- STYLED COMPONENTS ---
-
-// const CheckSolutionButton = styled.button`
-//   align-self: center;
-//   font-size: 20px;
-//   font-family: 'Patrick Hand', cursive;
-//   background-color: #F2B90C;
-//   color: #594020;
-//   padding: 10px 15px;
-//   margin: 8px 0;
-//   border: 1px solid #594020;
-//   border-radius: 5px;
-//   cursor: pointer;
-
-// `

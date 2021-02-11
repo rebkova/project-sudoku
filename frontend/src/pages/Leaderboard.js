@@ -11,7 +11,7 @@ import { LeaderBoardItem } from '../components/LeaderBoardItem'
 export const LeaderBoard = () => {
 
   const [results, setResults] = useState([])
-  const accessToken = useSelector((store) => store.user.login.accessToken)
+  const accessToken = useSelector(store => store.user.login.accessToken)
 
   const fetchLeaderBoard = () => {
     fetch(LEADERBOARD_URL)

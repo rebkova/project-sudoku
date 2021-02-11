@@ -21,10 +21,9 @@ const ListEntry = styled.li`
   margin-bottom: 5px;
   background-color: #D9D9D9;
 
-  /* border: 1px solid red; */
   &:hover {
-    border: 1px solid #4d52d6;
-    box-shadow: 0 0 10px #4d52d6;
+    border: 1px solid #3f51b5;
+    box-shadow: 0 0 10px #3f51b5;
     margin-bottom: 2px;
   }
 `

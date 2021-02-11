@@ -11,13 +11,11 @@ export const Header = () => {
 
   return (
     <HeaderWrap>
-      <div>Welcome, {username}! This is your playground.</div>
+      <div>Welcome, {username}!</div>
       <Text>SUDOKU</Text>
       <LogoutButton />
-
     </HeaderWrap>
   )
-
 }
 
 const HeaderWrap = styled.header`
@@ -27,8 +25,8 @@ const HeaderWrap = styled.header`
   left: 0;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background: #D9D9D9;
-  border: 1px solid yellow;
 `
 const Text = styled.h1`
   font-size: 20px;

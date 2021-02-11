@@ -29,13 +29,11 @@ export const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const accessToken = useSelector((store) => store.user.login.accessToken)   //To access the users Access Token
-  const loginError = useSelector((store) => store.user.login.statusMessage)  //To displays error message when login fails
+  const accessToken = useSelector(store => store.user.login.accessToken)
+  const loginError = useSelector(store => store.user.login.statusMessage)
 
   const handleLoginSuccess = (loginResponse) => {
-    dispatch(
-      user.actions.setAccessToken({ accessToken: loginResponse.accessToken })
-    )
+    dispatch(user.actions.setAccessToken({ accessToken: loginResponse.accessToken }))
     dispatch(user.actions.setUserId({ userId: loginResponse.userId }))
     dispatch(user.actions.setStatusMessage({ statusMessage: 'Login success' }))
   };
@@ -57,7 +55,6 @@ export const LoginForm = () => {
 
 
   const dispatchUsername = () => {
-
     dispatch(user.actions.setUsername({ username }))
   }
 
@@ -86,7 +83,6 @@ export const LoginForm = () => {
       .catch((err) => handleLoginFailed(err))
 
     // To reset input fields after user clicks on Login button
-    // setUsername("")
     setPassword("")
   }
 

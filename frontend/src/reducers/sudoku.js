@@ -27,7 +27,7 @@ const initialState = {
     [3, 5, 4, 2, 8, 9, 7, 6, 1]
   ],
   time: 0,
-  solution: false
+  result: false
 }
 
 // console.log(`from intial state: ${JSON.parse(localStorage.getItem('easySudoku'))}`)
@@ -45,20 +45,13 @@ export const sudoku = createSlice({
 
       //why is the digit updating with delay?
 
-      //remove THAT!
-      // const digit = Number(action.payload.digit)
       const digit = action.payload.digit
-
-      // console.log(`digit type: ${typeof digit}`)
-
-      // console.log(`digit from reducer: ${digit}`)
 
       store.easySudoku[rowIndex][columnIndex] = digit
 
       //localStorage here 
       // localStorage.setItem("easySudoku", JSON.stringify(store.easySudoku))
       // console.log(`store stuff: ${JSON.stringify(store.easySudoku)}`)
-
 
     },
     updateTime: (store, action) => {
@@ -70,11 +63,11 @@ export const sudoku = createSlice({
 
       store.time = (minutes * 60) + seconds
     },
-    updateSolution: (store, action) => {
-      const solution = action.payload.result
-      console.log(`Solution: ${solution}`)
+    updateResult: (store, action) => {
+      const result = action.payload.result
+      console.log(`Solution: ${result}`)
 
-      store.solution = solution
+      store.result = result
     }
 
   }
