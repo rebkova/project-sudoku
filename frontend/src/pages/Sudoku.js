@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
-// import styled from "styled-components/macro"
 import Button from '@material-ui/core/Button'
 
 import { LoginHere } from "../components/LoginHere"
@@ -17,6 +16,8 @@ export const Sudoku = () => {
   const dispatch = useDispatch()
 
   const [result, setResult] = useState(false)
+
+  // console.log(`result in Sudoku component: ${result}`)
 
   const puzzle = useSelector(store => store.sudoku.easySudoku)
   const solution = useSelector(store => store.sudoku.easySudokuSolution)
@@ -63,11 +64,11 @@ export const Sudoku = () => {
     dispatch(sudoku.actions.updateResult({ result }))
   }
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   dispatchResult()
-  //   // eslint-disable-next-line
-  // }, [result])
+    dispatchResult()
+    // eslint-disable-next-line
+  }, [result])
 
   const evaluateGame = () => {
 
@@ -76,20 +77,21 @@ export const Sudoku = () => {
 
         postToLeaderboard()
         setResult(true)
-        alert("Hej, this is true!")
-        dispatchResult()
+        console.log("Hej, this is true!")
+
 
       } else {
+        console.log("No time, this is true!")
         setResult(true)
-        dispatchResult()
+
       }
 
     } else {
-      alert("This is false!")
+      console.log("This is false!")
       setResult(false)
-      dispatchResult()
     }
   }
+
 
   if (accessToken) {
 
