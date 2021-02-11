@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import Button from '@material-ui/core/Button'
 
@@ -100,15 +100,15 @@ export const Sudoku = () => {
         <Header />
         <Timer />
         <Grid />
-        <Link to={`/result`}>
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            onClick={evaluateGame}>
-            Check solution!
+        {/* <Link to={`/result`}> */}
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          onClick={evaluateGame}>
+          Check solution!
         </Button>
-        </Link>
+        {/* </Link> */}
       </>
     )
   } else {

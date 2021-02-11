@@ -48,7 +48,7 @@ export const App = () => {
               <Sudoku />
             </Route>
 
-            <Route path="/result">
+            <Route path="/result" exact>
               <Result />
             </Route>
 

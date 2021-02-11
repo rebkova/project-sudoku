@@ -41,8 +41,6 @@ export const Timer = () => {
     // eslint-disable-next-line
   }, [isActive, second])
 
-  //PLAN: add checkSolutionButton here and send minutes/seconds as props
-
   return (
     <>
       <TimerWrap>
