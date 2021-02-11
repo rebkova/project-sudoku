@@ -7,16 +7,19 @@ import { sudoku } from "../reducers/sudoku"
 
 
 export const Timer = () => {
+
   const dispatch = useDispatch()
 
-  const [second, setSecond] = useState(0);
-  const [minute, setMinute] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [second, setSecond] = useState(0)
+  const [minute, setMinute] = useState(0)
+  const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
+
     let intervalId;
 
     if (isActive) {
+
       intervalId = setInterval(() => {
 
         if (second >= 59) {
@@ -40,8 +43,6 @@ export const Timer = () => {
     //dependancy array
     // eslint-disable-next-line
   }, [isActive, second])
-
-  //PLAN: add checkSolutionButton here and send minutes/seconds as props
 
   return (
     <>

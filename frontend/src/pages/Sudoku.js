@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 // import styled from "styled-components/macro"
 import Button from '@material-ui/core/Button'
@@ -76,13 +76,16 @@ export const Sudoku = () => {
 
         postToLeaderboard()
         setResult(true)
-        alert("Hej, this is true!")
+        alert("You nailed it!")
 
-      } else setResult(true)
+      } else {
+        setResult(true)
+        alert("Correct, great job!")
+      }
 
     } else {
-      alert("This is false!")
       setResult(false)
+      alert("Oops, not correct yet, try again!")
     }
   }
 
@@ -93,15 +96,15 @@ export const Sudoku = () => {
         <Header />
         <Timer />
         <Grid />
-        {/* <Link to={`/leaderboard`}> */}
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          onClick={evaluateGame}>
-          Check solution!
+        <Link to={`/leaderboard`}>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            onClick={evaluateGame}>
+            Check solution!
         </Button>
-        {/* </Link> */}
+        </Link>
       </>
 
     )

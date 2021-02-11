@@ -3,10 +3,15 @@ import styled from 'styled-components/macro'
 
 export const LeaderBoardItem = ({ username, time }) => {
 
+  const minutes = Math.floor(time / 60)
+
+  const seconds = time - minutes * 60
+
+
   return (
     <ListEntry>
-      <div>{username} </div>
-      <div>{time} seconds</div>
+      <div>{username}</div>
+      <div>{minutes < 10 ? `0${minutes}` : minutes} : {seconds < 10 ? `0${seconds}` : seconds}</div>
     </ListEntry>
   )
 }
