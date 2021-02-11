@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
@@ -6,11 +6,9 @@ import styled from 'styled-components'
 
 import { Welcome } from './Welcome'
 import { LOGIN_URL } from '../urls'
-// import { SESH } from '../urls'
 import { user } from '../reducers/user'
 import { GoBack } from 'components/GoBack'
 import { LoginButton } from '../buttons/LoginButton'
-
 
 
 //Imported with Material UI 
@@ -25,40 +23,51 @@ const useStyles = makeStyles((theme) => ({
 
 export const LoginForm = () => {
 
-  const classes = useStyles();
-  const dispatch = useDispatch();
+  const classes = useStyles()
+  const dispatch = useDispatch()
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
-
-  const accessToken = useSelector((store) => store.user.login.accessToken);   //To access the users Access Token
-  const loginError = useSelector((store) => store.user.login.statusMessage);  //To displays error message when login fails
+  const accessToken = useSelector((store) => store.user.login.accessToken)   //To access the users Access Token
+  const loginError = useSelector((store) => store.user.login.statusMessage)  //To displays error message when login fails
 
   const handleLoginSuccess = (loginResponse) => {
     dispatch(
       user.actions.setAccessToken({ accessToken: loginResponse.accessToken })
-    );
-    dispatch(user.actions.setUserId({ userId: loginResponse.userId }));
-    dispatch(user.actions.setStatusMessage({ statusMessage: 'Login success' }));
+    )
+    dispatch(user.actions.setUserId({ userId: loginResponse.userId }))
+    dispatch(user.actions.setStatusMessage({ statusMessage: 'Login success' }))
   };
 
   const handleLoginFailed = (loginFailed) => {
-    dispatch(user.actions.setAccessToken({ accessToken: null }));
-    dispatch(user.actions.setStatusMessage({ statusMessage: loginFailed }));
+    dispatch(user.actions.setAccessToken({ accessToken: null }))
+    dispatch(user.actions.setStatusMessage({ statusMessage: loginFailed }))
   }
 
   const onUsernameLoginChange = (event) => {
-    setUsername(event.target.value);
-  };
+    setUsername(event.target.value)
+  }
+
+  useEffect(() => {
+
+    dispatchUsername()
+    // eslint-disable-next-line
+  }, [username])
+
+
+  const dispatchUsername = () => {
+
+    dispatch(user.actions.setUsername({ username }))
+  }
 
   const onPasswordLoginChange = (event) => {
-    setPassword(event.target.value);
-  };
+    setPassword(event.target.value)
+  }
 
   //Fetch login
   const onLogin = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     fetch(LOGIN_URL, {
       method: 'POST',
@@ -74,10 +83,10 @@ export const LoginForm = () => {
         return response.json();
       })
       .then((json) => handleLoginSuccess(json))
-      .catch((err) => handleLoginFailed(err));
+      .catch((err) => handleLoginFailed(err))
 
     // To reset input fields after user clicks on Login button
-    setUsername("")
+    // setUsername("")
     setPassword("")
   }
 

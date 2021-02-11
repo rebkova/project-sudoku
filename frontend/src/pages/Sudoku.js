@@ -16,7 +16,8 @@ export const Sudoku = () => {
   const puzzle = useSelector(store => store.sudoku.easySudoku)
   const solution = useSelector(store => store.sudoku.easySudokuSolution)
   const elapsedSeconds = useSelector(store => store.sudoku.time)
-  const accessToken = useSelector((store) => store.user.login.accessToken)
+  const accessToken = useSelector(store => store.user.login.accessToken)
+  const username = useSelector(store => store.user.login.username)
 
   //compare the two arrays:
   const isCorrect = () => {
@@ -38,7 +39,7 @@ export const Sudoku = () => {
   const postToLeaderboard = () => {
     fetch(LEADERBOARD_URL, {
       method: 'POST',
-      body: JSON.stringify({ username: 'Rebeka', time: elapsedSeconds }),
+      body: JSON.stringify({ username: username, time: elapsedSeconds }),
       headers: { 'Content-Type': 'application/json' },
     })
       .then((response) => {

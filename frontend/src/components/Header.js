@@ -1,4 +1,5 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import styled from 'styled-components/macro'
 
 import { LogoutButton } from "../buttons/LogoutButton"
@@ -6,9 +7,11 @@ import { LogoutButton } from "../buttons/LogoutButton"
 
 export const Header = () => {
 
+  const username = useSelector(store => store.user.login.username)
+
   return (
     <HeaderWrap>
-      <div>... insert</div>
+      <div>Welcome, {username}! This is your playground.</div>
       <Text>SUDOKU</Text>
       <LogoutButton />
 
