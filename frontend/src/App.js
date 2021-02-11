@@ -17,6 +17,7 @@ import { LoginForm } from './pages/LoginForm'
 
 //--- components sudoku ---
 import { Sudoku } from "./pages/Sudoku"
+import { Result } from "./pages/Result"
 import { LeaderBoard } from "./pages/Leaderboard"
 
 export const reducer = combineReducers({
@@ -45,6 +46,10 @@ export const App = () => {
 
             <Route path="/sudoku" exact>
               <Sudoku />
+            </Route>
+
+            <Route path="/result">
+              <Result />
             </Route>
 
             <Route path="/leaderboard" exact>

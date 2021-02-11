@@ -65,8 +65,7 @@ export const sudoku = createSlice({
     },
     updateResult: (store, action) => {
       const result = action.payload.result
-      console.log(`Solution: ${result}`)
-
+      console.log(`Result: ${result}`)
       store.result = result
     }
 

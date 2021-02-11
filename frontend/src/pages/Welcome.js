@@ -22,7 +22,7 @@ export const Welcome = () => {
 
 // --- STYLED COMPONENTS ---
 
-const Text = styled.h2`
+export const Text = styled.h2`
   font-weight: 400;
 `
 

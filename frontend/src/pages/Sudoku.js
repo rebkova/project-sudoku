@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 // import styled from "styled-components/macro"
 import Button from '@material-ui/core/Button'
@@ -63,11 +63,11 @@ export const Sudoku = () => {
     dispatch(sudoku.actions.updateResult({ result }))
   }
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    dispatchResult()
-    // eslint-disable-next-line
-  }, [result])
+  //   dispatchResult()
+  //   // eslint-disable-next-line
+  // }, [result])
 
   const evaluateGame = () => {
 
@@ -77,12 +77,17 @@ export const Sudoku = () => {
         postToLeaderboard()
         setResult(true)
         alert("Hej, this is true!")
+        dispatchResult()
 
-      } else setResult(true)
+      } else {
+        setResult(true)
+        dispatchResult()
+      }
 
     } else {
       alert("This is false!")
       setResult(false)
+      dispatchResult()
     }
   }
 
@@ -93,17 +98,16 @@ export const Sudoku = () => {
         <Header />
         <Timer />
         <Grid />
-        {/* <Link to={`/leaderboard`}> */}
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          onClick={evaluateGame}>
-          Check solution!
+        <Link to={`/result`}>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            onClick={evaluateGame}>
+            Check solution!
         </Button>
-        {/* </Link> */}
+        </Link>
       </>
-
     )
   } else {
     return <LoginHere text={"Want to play sudoku?"} />
