@@ -36,7 +36,7 @@ export const App = () => {
           <Wrapper>
             <Route path="/" exact>
               <SignupForm />
-              <LoginHere text={"Already have an account?"} />
+              <LoginHere text={"Already a player?"} />
             </Route>
 
             <Route path="/sessions" exact>

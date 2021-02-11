@@ -123,10 +123,11 @@ const LoginContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 280px;
+  border: 1px solid #737373;
+  border-radius: 3px;
 `
 
 const WelcomeContainer = styled.h1`
-  color: darkblue;
-  margin-top: -10x;
-  padding-bottom: 15px;
+  color: #0D0D0D;
+  font-weight: 400;
 `

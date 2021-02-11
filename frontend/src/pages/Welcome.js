@@ -11,7 +11,7 @@ export const Welcome = () => {
   return (
     <>
       <Header />
-      <h2>How to play</h2>
+      <Text>How to play</Text>
       <Section>
         <InstructionList />
       </Section>
@@ -21,6 +21,10 @@ export const Welcome = () => {
 }
 
 // --- STYLED COMPONENTS ---
+
+const Text = styled.h2`
+  font-weight: 400;
+`
 
 const Section = styled.section`
   border-radius: 5px;

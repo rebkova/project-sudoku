@@ -59,12 +59,12 @@ const LeadWrap = styled.div`
   display: flex;
   flex-direction: column;
   width: 350px;
-  border: 1px solid blue;
 `
 
 const Title = styled.h1`
   align-self: center;
   font-size: 27px;
+  font-weight: 400;
   margin-top: 0;
 `
 
@@ -74,6 +74,4 @@ const ListWrap = styled.ol`
   margin: 5px;
   display: flex;
   flex-direction: column;
-
-  border: 1px solid orange;
 `

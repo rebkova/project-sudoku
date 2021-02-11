@@ -22,7 +22,7 @@ export const InstructionList = () => {
 
 const List = styled.ol`
   list-style-type: none; 
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
 `
 

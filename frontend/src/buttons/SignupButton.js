@@ -11,7 +11,7 @@ export const SignupButton = () => {
         color="primary"
         type="submit"
       >
-        Sign up
+        Create player
       </Button>
     </>
   )

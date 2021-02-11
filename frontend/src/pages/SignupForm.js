@@ -86,7 +86,7 @@ export const SignupForm = () => {
     <form className={classes.root} onSubmit={onSignup} noValidate autoComplete="off">
       <FormContainer>
         <WelcomeContainer>
-          Welcome, sudoku buddy!
+          Hi, sudoku buddy!
         </WelcomeContainer>
 
         <TextField
@@ -126,16 +126,15 @@ export const SignupForm = () => {
 }
 
 const FormContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 23px;
+  border: 1px solid #737373;
 `
 
 const WelcomeContainer = styled.h1`
-    /* color: darkblue; */
-    font-size: 25px;
-    /* margin-top: -10x; */
-    padding-bottom: 15px;
-    border: 1px solid red;
+  color: #0D0D0D;
+  font-size: 25px;
+  font-weight: 400;
 `
