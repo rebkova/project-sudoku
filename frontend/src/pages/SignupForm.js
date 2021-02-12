@@ -116,7 +116,7 @@ export const SignupForm = () => {
         />
 
         <SignupButton />
-        {signupError && alert(signupError)}
+        {signupError && <p>{signupError}</p>}
       </FormContainer>
     </form>
   );

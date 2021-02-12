@@ -112,7 +112,7 @@ export const LoginForm = () => {
           />
 
           <LoginButton />
-          {loginError && alert(loginError)}
+          {loginError && <p>{loginError}</p>}
           <GoBack />
         </LoginContainer>
       </form>
