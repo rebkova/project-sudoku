@@ -36,11 +36,8 @@ export const Timer = () => {
       }, 1000)
     }
 
-    //what does this line of code do? https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval
-    //We return a cleanup function to clear the interval when the effect stops running
     return () => clearInterval(intervalId);
 
-    //dependancy array
     // eslint-disable-next-line
   }, [isActive, second])
 
@@ -70,18 +67,4 @@ const TimerWrap = styled.div`
   font-weight: bold;
   margin-bottom: 35px;
 `
-
-// const StartPauseButton = styled.button`
-//   align-self: center;
-//   font-size: 20px;
-//   font-family: 'Patrick Hand', cursive;
-//   background-color: #F2B90C;
-//   color: #594020;
-//   padding: 10px 15px;
-//   margin: 8px 0;
-//   border: 1px solid #594020;
-//   border-radius: 5px;
-//   cursor: pointer;
-// `
-
 

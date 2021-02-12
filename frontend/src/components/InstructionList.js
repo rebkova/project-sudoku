@@ -30,5 +30,4 @@ const Text = styled.p`
   font-weight: lighter;
   font-size: 13px;
   margin: 0 0 7px 0;
-
 `

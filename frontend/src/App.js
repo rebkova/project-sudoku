@@ -20,7 +20,7 @@ import { Sudoku } from "./pages/Sudoku"
 import { LeaderBoard } from "./pages/Leaderboard"
 
 export const reducer = combineReducers({
-  //referring to the key *name* of the reducer
+
   sudoku: sudoku.reducer, user: user.reducer
 })
 
@@ -62,5 +62,4 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px;
-  /* border: 1px solid blue; */
 `

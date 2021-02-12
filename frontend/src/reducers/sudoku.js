@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-// const initialState = localStorage.setItem()
-//if the value is updated, save it to localStorage or have it as ""
+
 const initialState = {
-  // easySudoku: JSON.parse(localStorage.getItem('easySudoku')) || [
+
   easySudoku: [
     ["", "", "", 6, "", 1, 2, 8, 7],
     [6, "", 2, 5, "", 8, "", "", ""],
@@ -30,8 +29,6 @@ const initialState = {
   result: false
 }
 
-// console.log(`from intial state: ${JSON.parse(localStorage.getItem('easySudoku'))}`)
-
 export const sudoku = createSlice({
 
   name: "sudoku",
@@ -39,36 +36,29 @@ export const sudoku = createSlice({
   reducers: {
 
     updateCellValue: (store, action) => {
+
       const rowIndex = action.payload.rowIndex
 
       const columnIndex = action.payload.columnIndex
-
-      //why is the digit updating with delay?
 
       const digit = action.payload.digit
 
       store.easySudoku[rowIndex][columnIndex] = digit
 
-      //localStorage here 
-      // localStorage.setItem("easySudoku", JSON.stringify(store.easySudoku))
-      // console.log(`store stuff: ${JSON.stringify(store.easySudoku)}`)
-
     },
     updateTime: (store, action) => {
+
       const seconds = action.payload.second
-      // console.log(`Seconds: ${seconds}`)
 
       const minutes = action.payload.minute
-      // console.log(`Minutes: ${minutes}`)
 
       store.time = (minutes * 60) + seconds
     },
     updateResult: (store, action) => {
+
       const result = action.payload.result
-      console.log(`Solution: ${result}`)
 
       store.result = result
     }
-
   }
 })

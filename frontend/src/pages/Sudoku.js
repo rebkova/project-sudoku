@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from "react-redux"
-// import styled from "styled-components/macro"
 import Button from '@material-ui/core/Button'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux"
 
 import { LoginHere } from "../components/LoginHere"
 import { Header } from "../components/Header"
@@ -49,13 +48,14 @@ export const Sudoku = () => {
     })
       .then((response) => {
 
-        console.log(response.json())
         if (!response.ok) {
           // eslint-disable-next-line
-          throw "Sorry, could not post to leaderboard";
+          throw "Sorry, could not post to leaderboard"
         }
-        else console.log("response was ok!")
-        // return response.json();
+        else {
+          return response.json()
+        }
+
       })
   }
 

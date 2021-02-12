@@ -19,7 +19,6 @@ export const LeaderBoard = () => {
       .then(data => setResults(data))
       .catch(error => console.error(error));
   }
-  console.log(`Results: ${results}`)
 
   if (accessToken) {
     return (

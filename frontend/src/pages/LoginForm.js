@@ -62,8 +62,8 @@ export const LoginForm = () => {
     setPassword(event.target.value)
   }
 
-  //Fetch login
   const onLogin = (event) => {
+
     event.preventDefault()
 
     fetch(LOGIN_URL, {
@@ -82,11 +82,10 @@ export const LoginForm = () => {
       .then((json) => handleLoginSuccess(json))
       .catch((err) => handleLoginFailed(err))
 
-    // To reset input fields after user clicks on Login button
     setPassword("")
   }
 
-  if (!accessToken || accessToken === null) {
+  if (!accessToken || accessToken == null) {
 
     return (
       <form className={classes.root} onSubmit={onLogin} noValidate autoComplete="off">
@@ -113,7 +112,7 @@ export const LoginForm = () => {
           />
 
           <LoginButton />
-          {loginError && <p>{loginError}</p>}
+          {loginError && alert(loginError)}
           <GoBack />
         </LoginContainer>
       </form>

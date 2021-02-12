@@ -5,8 +5,6 @@ import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 
 import { SIGNUP_URL } from '../urls'
-// import { BASE_URL } from '../urls'
-// import { USERS } from '../urls'
 import { user } from '../reducers/user'
 import { SignupButton } from '../buttons/SignupButton'
 
@@ -30,7 +28,7 @@ export const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const validEmail = { pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" } //Email has to have the pattern of xxx@xxx.xx
+  const validEmail = { pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" }
 
   const signupError = useSelector((store) => store.user.login.statusMessage);
 
@@ -56,7 +54,7 @@ export const SignupForm = () => {
     setPassword(event.target.value);
   };
 
-  //Fetch signup
+
   const onSignup = (event) => {
 
     event.preventDefault();
@@ -75,14 +73,13 @@ export const SignupForm = () => {
       })
       .then((json) => handleSignupSuccess(json))
       .catch((err) => handleSignupFailed(err));
-
-    // To reset input fields after user clicks on Signup button
     setUsername("")
     setEmail("")
     setPassword("")
   }
 
   return (
+
     <form className={classes.root} onSubmit={onSignup} noValidate autoComplete="off">
       <FormContainer>
         <WelcomeContainer>
@@ -119,7 +116,7 @@ export const SignupForm = () => {
         />
 
         <SignupButton />
-        {signupError && <p>{signupError}</p>}
+        {signupError && alert(signupError)}
       </FormContainer>
     </form>
   );

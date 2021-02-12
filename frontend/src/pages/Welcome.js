@@ -6,7 +6,6 @@ import { PlayButton } from '../buttons/PlayButton'
 import { InstructionList } from '../components/InstructionList'
 
 export const Welcome = () => {
-  //get & displaythe username!
 
   return (
     <>
