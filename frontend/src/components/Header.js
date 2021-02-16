@@ -33,4 +33,8 @@ const Text = styled.h1`
   text-decoration-style: underline;
   padding: 10px 15px;
   margin: 8px 0;
+
+  @media (max-width:368px) {
+    display: none;
+  }
 `

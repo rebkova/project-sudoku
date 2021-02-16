@@ -7,7 +7,7 @@ import { Row } from "./Row"
 
 export const Grid = () => {
 
-  const easySudoku = useSelector((store) => store.sudoku.easySudoku)
+  const easySudoku = useSelector(store => store.sudoku.easySudoku)
 
   return (
     <GridWrap>

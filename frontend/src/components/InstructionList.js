@@ -22,8 +22,12 @@ export const InstructionList = () => {
 
 const List = styled.ol`
   list-style-type: none; 
+  text-align: justify;
   font-weight: 500;
   font-size: 16px;
+  padding: 8px;
+  margin: 0;
+
 `
 
 const Text = styled.p`

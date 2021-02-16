@@ -55,7 +55,6 @@ export const Sudoku = () => {
         else {
           return response.json()
         }
-
       })
   }
 

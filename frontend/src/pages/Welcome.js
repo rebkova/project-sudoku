@@ -29,6 +29,15 @@ const Section = styled.section`
   border-radius: 5px;
   background-color: #D9D9D9;
   width: 500px;
+
+  @media (max-width: 368px) {
+    width: 310px;
+  }
+
+  @media (max-width: 510px ) {
+    width: 350px;
+  }
+  
 `
 
 
