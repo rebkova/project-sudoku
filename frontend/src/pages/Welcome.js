@@ -34,10 +34,9 @@ const Section = styled.section`
     width: 310px;
   }
 
-  @media (max-width: 510px ) {
+  @media (max-width: 510px) {
     width: 350px;
   }
-  
 `
 
 

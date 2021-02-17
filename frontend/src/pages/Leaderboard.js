@@ -57,6 +57,10 @@ const LeadWrap = styled.div`
   display: flex;
   flex-direction: column;
   width: 350px;
+  
+  @media (max-width: 368px) {
+    width: 310px;
+  }
 `
 
 const Title = styled.h1`
