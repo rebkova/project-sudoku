@@ -41,3 +41,7 @@ Backend:
 ## :eyes: View it live
 - Backend: https://rebeka-project-sudoku.herokuapp.com/
 - Frontend: https://rebeka-sudoku-app.netlify.app/
+
+## :key: Sudoku solution
+
+![Sudoku solution](sudoku-solution.png)
