@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 import bcrypt from 'bcrypt';
+import listEndpoints from 'express-list-endpoints';
 
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-sudoku"
@@ -79,7 +80,6 @@ if (process.env.RESET_DATABASE) {
 
 const port = process.env.PORT || 8080;
 const app = express();
-import listEndpoints from 'express-list-endpoints';
 
 
 const authenticateUser = async (request, response, next) => {
