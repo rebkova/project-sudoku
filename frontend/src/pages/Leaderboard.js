@@ -3,10 +3,11 @@ import { useSelector } from "react-redux"
 import Button from '@material-ui/core/Button'
 import styled from 'styled-components/macro'
 
-import { LEADERBOARD_URL } from '../urls'
+import { LEADERBOARD_URL } from '../constants/urls'
 import { Header } from '../components/Header'
 import { LoginHere } from "../components/LoginHere"
 import { LeaderBoardItem } from '../components/LeaderBoardItem'
+import { ShowLeaderboardButton } from "../buttons/ShowLeaderboardButton"
 
 export const LeaderBoard = () => {
 
@@ -36,14 +37,7 @@ export const LeaderBoard = () => {
             ))}
           </ListWrap>
         </LeadWrap>
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          onClick={fetchLeaderBoard}
-        >
-          Show leaderboard
-        </Button>
+        <ShowLeaderboardButton />
       </>
     )
   } else {

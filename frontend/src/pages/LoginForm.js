@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components'
 
 import { Welcome } from './Welcome'
-import { LOGIN_URL } from '../urls'
+import { LOGIN_URL } from '../constants/urls'
 import { user } from '../reducers/user'
 import { GoBack } from 'components/GoBack'
 import { LoginButton } from '../buttons/LoginButton'
@@ -56,6 +56,7 @@ export const LoginForm = () => {
 
   const dispatchUsername = () => {
     dispatch(user.actions.setUsername({ username }))
+    localStorage.setItem('accessToken', accessToken)
   }
 
   const onPasswordLoginChange = (event) => {
@@ -83,6 +84,7 @@ export const LoginForm = () => {
       .catch((err) => handleLoginFailed(err))
 
     setPassword("")
+    //setUsername("") -> nothing is saved in the local storage
   }
 
   if (!accessToken) {

@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components/macro'
 import React, { useState } from 'react'
 
-import { SIGNUP_URL } from '../urls'
+import { SIGNUP_URL } from '../constants/urls'
 import { user } from '../reducers/user'
 import { SignupButton } from '../buttons/SignupButton'
 

@@ -2,14 +2,14 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 
 
-export const LoginButton = () => {
+export const ShowLeaderboardButton = () => {
   return (
     <Button
       variant="contained"
       color="primary"
       type="submit"
     >
-      Login
+      Show Leaderboard
     </Button>
   )
 }

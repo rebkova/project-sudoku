@@ -17,7 +17,7 @@ export const user = createSlice({
 
       const { accessToken } = action.payload
       state.login.accessToken = accessToken
-      localStorage.setItem('accessToken', accessToken)
+      // localStorage.setItem('accessToken', accessToken)
 
     },
     setUsername: (state, action) => {
@@ -45,8 +45,8 @@ export const user = createSlice({
       state.login.accessToken = null
       state.login.username = ""
       state.login.statusMessage = ""
-      localStorage.removeItem('accessToken')
-      localStorage.removeItem('username')
+      // localStorage.removeItem('accessToken')
+      // localStorage.removeItem('username')
 
     },
   }

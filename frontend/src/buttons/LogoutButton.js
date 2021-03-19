@@ -12,6 +12,8 @@ export const LogoutButton = () => {
 
   const handleLogout = () => {
     dispatch(user.actions.logout());
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('username')
   };
 
   return (

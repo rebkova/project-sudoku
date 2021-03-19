@@ -7,7 +7,7 @@ import { LoginHere } from "../components/LoginHere"
 import { Header } from "../components/Header"
 import { sudoku } from "../reducers/sudoku"
 import { Timer } from "../components/Timer"
-import { LEADERBOARD_URL } from "../urls"
+import { LEADERBOARD_URL } from "../constants/urls"
 import { Grid } from "../components/Grid"
 
 
