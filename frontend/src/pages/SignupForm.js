@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import styled from 'styled-components/macro'
 import React, { useState } from 'react'
+import Popup from "reactjs-popup"
 
 import { SIGNUP_URL } from '../constants/urls'
 import { user } from '../reducers/user'
@@ -80,7 +81,12 @@ export const SignupForm = () => {
 
   return (
 
-    <form className={classes.root} onSubmit={onSignup} noValidate autoComplete="off">
+    <form
+      className={classes.root}
+      onSubmit={onSignup}
+      noValidate
+      autoComplete="off"
+    >
       <FormContainer>
         <WelcomeContainer>
           Hi, sudoku friend!
@@ -115,8 +121,14 @@ export const SignupForm = () => {
           helperText={password === "" ? 'min 5 characters, max 12' : ' '}
         />
 
-        <SignupButton />
-        {signupError && <p>{signupError}</p>}
+        {/* <SignupButton /> */}
+        <Popup
+          trigger={<SignupButton />}
+          position="bottom center"
+          arrow={false}
+        >
+          {signupError}
+        </Popup>
       </FormContainer>
     </form>
   );
