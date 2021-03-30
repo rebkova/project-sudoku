@@ -42,7 +42,9 @@ export const LeaderBoard = () => {
           color="primary"
           type="submit"
           onClick={fetchLeaderBoard}
-        />
+        >
+          Show Leaderboard
+        </Button>
       </>
     )
   } else {
