@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
-import Button from '@material-ui/core/Button'
+// import Button from '@material-ui/core/Button'
 import styled from 'styled-components/macro'
 
 import { LEADERBOARD_URL } from '../constants/urls'
@@ -37,7 +37,7 @@ export const LeaderBoard = () => {
             ))}
           </ListWrap>
         </LeadWrap>
-        <ShowLeaderboardButton />
+        <ShowLeaderboardButton onClick={fetchLeaderBoard} />
       </>
     )
   } else {
